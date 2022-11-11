@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="78266198-f290-4a60-8927-9bdde3aa2319" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-j-8.0.31-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-j-8.0.31-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-j-8.0.31.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ojdbc10-19.3.0.0-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ojdbc10-19.3.0.0-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ojdbc10-19.3.0.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ons-19.3.0.0-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ons-19.3.0.0-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ons-19.3.0.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/oraclepki-19.3.0.0-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/oraclepki-19.3.0.0-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/oraclepki-19.3.0.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/osdt_cert-19.3.0.0-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/osdt_cert-19.3.0.0-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/osdt_cert-19.3.0.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/osdt_core-19.3.0.0-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/osdt_core-19.3.0.0-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/osdt_core-19.3.0.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/protobuf-java-3.19.4-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/protobuf-java-3.19.4-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/protobuf-java-3.19.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/simplefan-19.3.0.0-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/simplefan-19.3.0.0-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/simplefan-19.3.0.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ucp-19.3.0.0-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ucp-19.3.0.0-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ucp-19.3.0.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/DBUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/registration/JdbcDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/registration/MainApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/registration/RegisterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/jacob/uidatabase/dashboard.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/jacob/uidatabase/hello-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/login_form.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HKHFRiTCjNy3KLMrGm3sgEa2oi" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "true",
+    "Repository.Attach.Sources": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "E:/Users/Jacob Sanderlin/Projects/UIDataBase/src/main/resources/com/jacob/uidatabase",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "fileTemplates"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Users\Jacob Sanderlin\Projects\UIDataBase\src\main\resources\com\jacob\uidatabase" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Run" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.jacob.uidatabase.registration.MainApp" />
+      <module name="UIDataBase" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="78266198-f290-4a60-8927-9bdde3aa2319" name="Changes" comment="" />
+      <created>1668026751938</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668026751938</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:com.google.protobuf:protobuf-java" />
+    <option featureType="dependencySupport" implementationName="java:org.openjfx:javafx-base" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
