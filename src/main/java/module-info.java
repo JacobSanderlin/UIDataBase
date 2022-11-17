@@ -12,9 +12,12 @@ module com.jacob.uidatabase {
     requires eu.hansolo.tilesfx;
     requires java.sql;
     requires mysql.connector.j;
+    requires java.sql.rowset;
 
-    opens com.jacob.uidatabase.registration to javafx.fxml;
+    opens com.jacob.uidatabase.controller to javafx.fxml;
     exports com.jacob.uidatabase.registration;
     exports com.jacob.uidatabase;
     opens com.jacob.uidatabase to javafx.fxml;
+    exports com.jacob.uidatabase.util;
+    opens com.jacob.uidatabase.util to javafx.fxml;
 }
