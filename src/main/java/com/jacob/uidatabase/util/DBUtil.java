@@ -2,7 +2,9 @@ package com.jacob.uidatabase.util;
 
 
 import javax.sql.RowSet.*;
-import com.sun.rowset.CachedRowSetImpl;
+import javax.sql.rowset.CachedRowSet;
+import javax.sql.rowset.RowSetProvider;
+
 import java.sql.*;
 
 
@@ -54,7 +56,7 @@ public class DBUtil {
 
         Statement stmt = null;
         ResultSet resultSet = null;
-        CachedRowSetImpl crs = null;
+        CachedRowSet crs = null;
         try {
             dbConnect();
             System.out.println("Select statement: " + queryStmt + "\n");
@@ -62,7 +64,7 @@ public class DBUtil {
 
             resultSet = stmt.executeQuery(queryStmt);
 
-            crs = new CachedRowSetImpl();
+            crs = RowSetProvider.newFactory().createCachedRowSet();
             crs.populate(resultSet);
         } catch (SQLException e) {
             System.out.println("Problem occurred at executeQuery operation : " + e);

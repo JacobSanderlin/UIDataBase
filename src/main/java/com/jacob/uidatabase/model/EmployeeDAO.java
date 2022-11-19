@@ -46,7 +46,7 @@ public class EmployeeDAO {
     }
 
     public static ObservableList<Employee> searchEmployees() throws SQLException, ClassNotFoundException {
-        String selectStmt = "SELECT * FROM employees";
+        String selectStmt = "SELECT * FROM animalshelter.employee";
 
         try {
             ResultSet rsEmps = DBUtil.dbExecuteQuery(selectStmt);
@@ -65,14 +65,14 @@ public class EmployeeDAO {
 
         while (rs.next()) {
             Employee emp = new Employee();
-            emp.setEmployee_id(rs.getInt("EMPLOYEE_ID"));
-            emp.setFirst_name(rs.getString("FIRST_NAME"));
-            emp.setLast_name(rs.getString("LAST_NAME"));
-            emp.setHours(rs.getInt("HOURS"));
+            emp.setEmployee_id(rs.getInt("Employee_ID"));
+            emp.setFirst_name(rs.getString("fName"));
+            emp.setLast_name(rs.getString("lName"));
+            emp.setHours(rs.getInt("hours"));
             emp.setSSN(rs.getInt("SSN"));
-            emp.setRole(rs.getString("ROLE"));
-            emp.setSex(rs.getString("SEX"));
-            emp.setSupervisor_id(rs.getInt("SUPERVISOR_ID"));
+            emp.setRole(rs.getString("role"));
+            emp.setSex(rs.getString("sex"));
+            emp.setSupervisor_id(rs.getInt("supervisor_ID"));
             empList.add(emp);
         }
 
@@ -94,20 +94,18 @@ public class EmployeeDAO {
         }
     }
 
-    public static void insertEmp (String role, String name, int id, String sex, int SSN) throws SQLException, ClassNotFoundException {
-        //Declare a DELETE statement
+    public static void insertEmp (String role, String fName, int id, String sex, int SSN, String lName, int hours, int supervisorID) throws SQLException, ClassNotFoundException {
+        //INSERT INTO `animalshelter`.`employee`
+        //(`Role`, `Employee_FName`, `Employee_ID`, `Employee_Sex`, `Employee_SSN`, `Employee_LName`, `Employee_Hours`, `Supervisor_ID`)
+        //VALUES ('General\n', 'John', '1234567', 'M', '111223333', 'Smith', '25', '7654321');
         String updateStmt =
-                "BEGIN\n" +
-                        "INSERT INTO employees\n" +
-                        "(ROLE, EMPLOYEE_NAME, EMPLOYEE_ID, SEX, SSN)\n" +
-                        "VALUES\n" +
-                        "(sequence_employee.nextval, '"+role+"', '"+name+"', '"+id+"','"+sex+"','"+SSN+ ");\n" +
-                        "END;";
-        //Execute DELETE operation
+                        "INSERT INTO animalshelter.employee\n" +
+                        "VALUES ('" + role + "', '" + fName + "', " + id + ", " + SSN + ", '"
+                        + sex + "', '" + lName + "', " + hours + ", " + supervisorID +");";
         try {
             DBUtil.dbExecuteUpdate(updateStmt);
         } catch (SQLException e) {
-            System.out.print("Error occurred while DELETE Operation: " + e);
+            System.out.print("Error occurred while INSERT Operation: " + e);
             throw e;
         }
     }

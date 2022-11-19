@@ -4,20 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78266198-f290-4a60-8927-9bdde3aa2319" name="Changes" comment="Ubdated DBUI Model">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/EmployeeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/RootLayoutController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/EmployeeDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/util/DBUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/EmployeeView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/RootLayout.fxml" afterDir="false" />
+    <list default="true" id="78266198-f290-4a60-8927-9bdde3aa2319" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/DBUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/registration/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/EmployeeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/registration/JdbcDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/registration/RegisterController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/util/DBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/util/DBUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jacob/uidatabase/dashboard.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/login_form.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/EmployeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/EmployeeView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -46,34 +42,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Users/Jacob Sanderlin/Projects/UIDataBase/src/main/resources/com/jacob/uidatabase&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "true",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/sande/AppData/Local/SceneBuilder/SceneBuilder.exe",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Users\Jacob Sanderlin\Projects\UIDataBase\src\main\resources\com\jacob\uidatabase" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Users\Jacob Sanderlin\Projects\UIDataBase\src\main\resources\view" />
-      <recent name="E:\Users\Jacob Sanderlin\Projects\UIDataBase\src\main\java\com\jacob\uidatabase\view" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-      <recent name="com.jacob.uidatabase" />
     </key>
   </component>
   <component name="RunManager">
@@ -94,14 +82,6 @@
       <option name="presentableId" value="Default" />
       <updated>1668026751938</updated>
     </task>
-    <task id="LOCAL-00001" summary="Initial Commit">
-      <created>1668189091532</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1668189091532</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -121,9 +101,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Initial Commit" />
-    <MESSAGE value="Ubdated DBUI Model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ubdated DBUI Model" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

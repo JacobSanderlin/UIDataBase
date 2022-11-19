@@ -15,7 +15,6 @@ module com.jacob.uidatabase {
     requires java.sql.rowset;
 
     opens com.jacob.uidatabase.controller to javafx.fxml;
-    exports com.jacob.uidatabase.registration;
     exports com.jacob.uidatabase;
     opens com.jacob.uidatabase to javafx.fxml;
     exports com.jacob.uidatabase.util;

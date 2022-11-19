@@ -42,7 +42,7 @@
                               <Insets right="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="empIDText" GridPane.columnIndex="1">
+                        <TextField fx:id="employee_IDText" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
@@ -82,12 +82,12 @@
                               <Insets right="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="firstNameText" layoutX="115.0" layoutY="23.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextField fx:id="fNameText" layoutX="115.0" layoutY="23.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="lastNameText" layoutX="110.0" layoutY="74.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <TextField fx:id="lNameText" layoutX="110.0" layoutY="74.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
@@ -112,7 +112,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="supervisorIDText" layoutX="310.0" layoutY="124.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                        <TextField fx:id="supervisor_IDText" layoutX="310.0" layoutY="124.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
@@ -121,7 +121,7 @@
                   </GridPane>
                   <HBox prefHeight="31.0" prefWidth="600.0">
                      <children>
-                        <Button fx:id="searchButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Search">
+                        <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchEmployees" prefHeight="25.0" prefWidth="75.0" text="Search">
                            <HBox.margin>
                               <Insets bottom="5.0" left="35.0" right="5.0" top="5.0" />
                            </HBox.margin>
@@ -136,7 +136,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="clearButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="Clear">
+                        <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearEntries" prefHeight="25.0" prefWidth="69.0" text="Clear">
                            <HBox.margin>
                               <Insets bottom="5.0" left="100.0" right="5.0" top="5.0" />
                            </HBox.margin>
@@ -145,17 +145,17 @@
                   </HBox>
                   <ScrollPane prefHeight="200.0" prefWidth="200.0">
                      <content>
-                        <TableView fixedCellSize="15.0" prefHeight="198.0" prefWidth="800.0">
+                        <TableView fx:id="employeeTable" fixedCellSize="25.0" prefHeight="198.0" prefWidth="800.0">
                            <columns>
                               <TableColumn prefWidth="25.0" />
-                              <TableColumn fx:id="empIDColumn" maxWidth="100.0" minWidth="75.0" prefWidth="-1.0" text="Empl_ID" />
-                              <TableColumn fx:id="firstNameColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="FName" />
-                              <TableColumn fx:id="lastNameColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" resizable="false" text="LName" />
+                              <TableColumn fx:id="employee_IDColumn" maxWidth="100.0" minWidth="75.0" prefWidth="-1.0" text="Emp_ID" />
+                              <TableColumn fx:id="fNameColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="FName" />
+                              <TableColumn fx:id="lNameColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" resizable="false" text="LName" />
                               <TableColumn fx:id="SSNColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="SSN" />
                               <TableColumn fx:id="hoursColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Hours" />
                               <TableColumn fx:id="sexColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Sex" />
                               <TableColumn fx:id="roleColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Role" />
-                              <TableColumn fx:id="supervisorIDColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Super_ID" />
+                              <TableColumn fx:id="supervisor_IDColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Super_ID" />
                            </columns>
                         </TableView>
                      </content>

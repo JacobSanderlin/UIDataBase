@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.sql.SQLException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 /**
  * @author : Jacob Sanderlin
@@ -18,13 +20,13 @@ import java.sql.SQLException;
 public class EmployeeController {
 
     @FXML
-    private TextField empIDText;
+    private TextField employee_IDText;
 
     @FXML
-    private TextField firstNameText;
+    private TextField fNameText;
 
     @FXML
-    private TextField lastNameText;
+    private TextField lNameText;
 
     @FXML
     private TextField SSNText;
@@ -39,16 +41,16 @@ public class EmployeeController {
     private TextField roleText;
 
     @FXML
-    private TextField supervisorIDText;
+    private TextField supervisor_IDText;
 
     @FXML
-    private TableView employeeTable;
+    private TableView<Employee> employeeTable;
     @FXML
-    private TableColumn<Employee, Integer> empIDColumn;
+    private TableColumn<Employee, Integer> employee_IDColumn;
     @FXML
-    private TableColumn<Employee, String> firstNameColumn;
+    private TableColumn<Employee, String> fNameColumn;
     @FXML
-    private TableColumn<Employee, String> lastNameColumn;
+    private TableColumn<Employee, String> lNameColumn;
     @FXML
     private TableColumn<Employee, Integer> SSNColumn;
     @FXML
@@ -58,12 +60,13 @@ public class EmployeeController {
     @FXML
     private TableColumn<Employee, String> roleColumn;
     @FXML
-    private TableColumn<Employee, Integer> supervisorIDColumn;
+    private TableColumn<Employee, Integer> supervisor_IDColumn;
 
+    private Executor exec;
     @FXML
     private void searchEmployee(ActionEvent event) throws SQLException, ClassNotFoundException {
         try {
-            Employee emp = EmployeeDAO.searchEmployee(empIDText.getText());
+            Employee emp = EmployeeDAO.searchEmployee(employee_IDText.getText());
             populateAndShowEmployee(emp);
         } catch (SQLException e) {
             System.out.println("Error occurred while getting employee information from DB.\n" + e);
@@ -84,16 +87,30 @@ public class EmployeeController {
         }
     }
 
+    private void populateInit() throws SQLException, ClassNotFoundException{
+        try {
+            populateEmployees(EmployeeDAO.searchEmployees());
+        } catch (SQLException e) {
+            System.out.println("Error in populateInit");
+        }
+    }
+
     @FXML
-    private void initialize() {
-        empIDColumn.setCellValueFactory(cellData -> cellData.getValue().employee_idProperty().asObject());
-        firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().first_nameProperty());
-        lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().last_nameProperty());
+    private void initialize() throws SQLException, ClassNotFoundException {
+        exec = Executors.newCachedThreadPool((runnable) -> {
+            Thread t = new Thread (runnable);
+            t.setDaemon(true);
+            return t;
+        });
+        employee_IDColumn.setCellValueFactory(cellData -> cellData.getValue().employee_idProperty().asObject());
+        fNameColumn.setCellValueFactory(cellData -> cellData.getValue().first_nameProperty());
+        lNameColumn.setCellValueFactory(cellData -> cellData.getValue().last_nameProperty());
         SSNColumn.setCellValueFactory(cellData -> cellData.getValue().SSNProperty().asObject());
         hoursColumn.setCellValueFactory(cellData -> cellData.getValue().hoursProperty().asObject());
         sexColumn.setCellValueFactory(cellData -> cellData.getValue().sexProperty());
         roleColumn.setCellValueFactory(cellData -> cellData.getValue().roleProperty());
-        supervisorIDColumn.setCellValueFactory(cellData -> cellData.getValue().supervisor_idProperty().asObject());
+        supervisor_IDColumn.setCellValueFactory(cellData -> cellData.getValue().supervisor_idProperty().asObject());
+        populateInit();
     }
 
     //Populate Employee
@@ -127,8 +144,9 @@ public class EmployeeController {
     @FXML
     private void insertEmployee (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         try {
-            EmployeeDAO.insertEmp(roleText.getText(),firstNameText.getText(),
-                    Integer.parseInt(empIDText.getText()),sexText.getText(), Integer.parseInt(SSNText.getText()));
+            EmployeeDAO.insertEmp(roleText.getText(), fNameText.getText(),
+                    Integer.parseInt(employee_IDText.getText()),sexText.getText(), Integer.parseInt(SSNText.getText()),
+                    lNameText.getText(), Integer.parseInt(hoursText.getText()), Integer.parseInt(supervisor_IDText.getText()));
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Employee Added");
             alert.setHeaderText("Employee was inserted into the database successfully!");
@@ -141,11 +159,27 @@ public class EmployeeController {
             throw e;
         }
     }
-    //Delete an employee with a given employee Id from DB
+
+    @FXML
+    private void clearEntries(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("WARNING: Clear Entries");
+        alert.setHeaderText("You are about to clear all entries.");
+        alert.showAndWait();
+        employee_IDText.clear();
+        fNameText.clear();
+        lNameText.clear();
+        SSNText.clear();
+        hoursText.clear();
+        sexText.clear();
+        roleText.clear();
+        supervisor_IDText.clear();
+    }
+    //Delete an employee with a given employee ID from DB
     @FXML
     private void deleteEmployee (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         try {
-            EmployeeDAO.deleteEmpWithID(empIDText.getText());
+            EmployeeDAO.deleteEmpWithID(employee_IDText.getText());
         } catch (SQLException e) {
             throw e;
         }
