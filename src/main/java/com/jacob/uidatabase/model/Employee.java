@@ -10,14 +10,14 @@ import javafx.beans.property.SimpleIntegerProperty;
  **/
 public class Employee {
 
-    private IntegerProperty employee_id;
-    private StringProperty first_name;
-    private StringProperty last_name;
-    private IntegerProperty hours;
-    private IntegerProperty SSN;
-    private StringProperty sex;
-    private StringProperty role;
-    private IntegerProperty supervisor_id;
+    private final IntegerProperty employee_id;
+    private final StringProperty first_name;
+    private final StringProperty last_name;
+    private final IntegerProperty hours;
+    private final IntegerProperty SSN;
+    private final StringProperty sex;
+    private final StringProperty role;
+    private final IntegerProperty supervisor_id;
 
     public Employee() {
         this.employee_id = new SimpleIntegerProperty();

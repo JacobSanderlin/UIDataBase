@@ -1,5 +1,7 @@
 package com.jacob.uidatabase.controller;
 
+import com.jacob.uidatabase.model.Adopter;
+import com.jacob.uidatabase.model.AdopterDAO;
 import com.jacob.uidatabase.model.Employee;
 import com.jacob.uidatabase.model.EmployeeDAO;
 import javafx.collections.FXCollections;
@@ -7,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import org.w3c.dom.Text;
 
 import java.sql.SQLException;
 import java.util.concurrent.Executor;
@@ -19,6 +22,9 @@ import java.util.concurrent.Executors;
  **/
 public class EmployeeController {
 
+    /**
+     *  Employee View Fields
+     **/
     @FXML
     private TextField employee_IDText;
 
@@ -62,7 +68,52 @@ public class EmployeeController {
     @FXML
     private TableColumn<Employee, Integer> supervisor_IDColumn;
 
-    private Executor exec;
+    /**
+     *  Adopter View Fields
+     */
+    @FXML
+    private TextField adopterIDText;
+    @FXML
+    private TextField fNameAdopterText;
+    @FXML
+    private TextField lNameAdopterText;
+    @FXML
+    private TextField phoneNumberText;
+    @FXML
+    private TextField eligibilityText;
+    @FXML
+    private TextField streetAddressText;
+    @FXML
+    private TextField cityText;
+    @FXML
+    private TextField stateText;
+    @FXML
+    private TextField zipCodeText;
+    @FXML
+    private TableView<Adopter> adopterTable;
+    @FXML
+    private TableColumn<Adopter, Integer> adopter_IDColumn;
+    @FXML
+    private TableColumn<Adopter, String> adopterFNameColumn;
+    @FXML
+    private TableColumn<Adopter, String> adopterLNameColumn;
+    @FXML
+    private TableColumn<Adopter, String> phone_NumberColumn;
+    @FXML
+    private TableColumn<Adopter, String> eligibilityColumn;
+    @FXML
+    private TableColumn<Adopter, String> street_AddressColumn;
+    @FXML
+    private TableColumn<Adopter, String> cityColumn;
+    @FXML
+    private TableColumn<Adopter, String> stateColumn;
+    @FXML
+    private TableColumn<Adopter, Integer> zip_CodeColumn;
+
+
+    /**
+     *  Employee View Functions
+     */
     @FXML
     private void searchEmployee(ActionEvent event) throws SQLException, ClassNotFoundException {
         try {
@@ -90,18 +141,24 @@ public class EmployeeController {
     private void populateInit() throws SQLException, ClassNotFoundException{
         try {
             populateEmployees(EmployeeDAO.searchEmployees());
+            populateAdopters(AdopterDAO.searchAdopters());
         } catch (SQLException e) {
-            System.out.println("Error in populateInit");
+            System.out.println("Error in populateInit: " + e);
+            throw e;
+
         }
     }
 
     @FXML
     private void initialize() throws SQLException, ClassNotFoundException {
-        exec = Executors.newCachedThreadPool((runnable) -> {
-            Thread t = new Thread (runnable);
+        // Multi-threading Executor
+        Executor exec = Executors.newCachedThreadPool((runnable) -> {
+            Thread t = new Thread(runnable);
             t.setDaemon(true);
             return t;
         });
+
+        // Employee Table Column Initialization
         employee_IDColumn.setCellValueFactory(cellData -> cellData.getValue().employee_idProperty().asObject());
         fNameColumn.setCellValueFactory(cellData -> cellData.getValue().first_nameProperty());
         lNameColumn.setCellValueFactory(cellData -> cellData.getValue().last_nameProperty());
@@ -110,6 +167,19 @@ public class EmployeeController {
         sexColumn.setCellValueFactory(cellData -> cellData.getValue().sexProperty());
         roleColumn.setCellValueFactory(cellData -> cellData.getValue().roleProperty());
         supervisor_IDColumn.setCellValueFactory(cellData -> cellData.getValue().supervisor_idProperty().asObject());
+
+        // Adopter Table Column Initialization
+        adopter_IDColumn.setCellValueFactory(cellData -> cellData.getValue().adopter_idProperty().asObject());
+        adopterFNameColumn.setCellValueFactory(cellData -> cellData.getValue().first_nameProperty());
+        adopterLNameColumn.setCellValueFactory(cellData -> cellData.getValue().last_nameProperty());
+        phone_NumberColumn.setCellValueFactory(cellData -> cellData.getValue().phone_numberProperty());
+        eligibilityColumn.setCellValueFactory(cellData -> cellData.getValue().eligibilityProperty());
+        street_AddressColumn.setCellValueFactory(cellData -> cellData.getValue().street_AddressProperty());
+        cityColumn.setCellValueFactory(cellData -> cellData.getValue().cityProperty());
+//        stateColumn.setCellValueFactory(cellData -> cellData.getValue().stateProperty());
+//        zip_CodeColumn.setCellValueFactory(cellData -> cellData.getValue().zip_CodeProperty().asObject());
+
+
         populateInit();
     }
 
@@ -137,7 +207,7 @@ public class EmployeeController {
     }
     //Populate Employees for TableView
     @FXML
-    private void populateEmployees (ObservableList<Employee> empData) throws ClassNotFoundException {
+    private void populateEmployees (ObservableList<Employee> empData) {
         //Set items to the employeeTable
         employeeTable.setItems(empData);
     }
@@ -182,6 +252,75 @@ public class EmployeeController {
             EmployeeDAO.deleteEmpWithID(employee_IDText.getText());
         } catch (SQLException e) {
             throw e;
+        }
+    }
+
+    /**
+     *  Adopter View Functions
+     */
+
+    @FXML
+    private void populateAdopters(ObservableList<Adopter> adopterData) {
+        //Set items to the employeeTable
+        adopterTable.setItems(adopterData);
+    }
+
+    @FXML
+    private void clearAdopterEntries(ActionEvent event){
+        adopterIDText.clear();
+        fNameAdopterText.clear();
+        lNameAdopterText.clear();
+        phoneNumberText.clear();
+        eligibilityText.clear();
+        streetAddressText.clear();
+        stateText.clear();
+        cityText.clear();
+        zipCodeText.clear();
+    }
+
+    @FXML
+    private void populateAdopter (Adopter adopter) throws ClassNotFoundException {
+        //Declare and ObservableList for table view
+        ObservableList<Adopter> adopterData = FXCollections.observableArrayList();
+        //Add employee to the ObservableList
+        adopterData.add(adopter);
+        //Set items to the employeeTable
+        adopterTable.setItems(adopterData);
+    }
+
+    @FXML
+    private void searchAdopter(ActionEvent event) throws SQLException, ClassNotFoundException {
+        try {
+            Adopter ado = AdopterDAO.searchAdopter(adopterIDText.getText());
+            populateAndShowAdopter(ado);
+        } catch (SQLException e) {
+            System.out.println("Error occurred while getting employee information from DB.\n" + e);
+            throw e;
+        }
+    }
+
+    @FXML
+    private void populateAndShowAdopter(Adopter ado) throws ClassNotFoundException {
+        if (ado != null) {
+            populateAdopter(ado);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Adopter DNE");
+            alert.setHeaderText("This adopter is not in the database!");
+            alert.show();
+        }
+    }
+
+    @FXML
+    private void searchAdopters(ActionEvent event) throws SQLException, ClassNotFoundException {
+        try {
+            //Get all Employees information
+            ObservableList<Adopter> adoData = AdopterDAO.searchAdopters();
+            //Populate Employees on TableView
+            populateAdopters(adoData);
+        } catch (SQLException e) {
+            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+
         }
     }
 }

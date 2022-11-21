@@ -20,9 +20,7 @@ public class EmployeeDAO {
         try {
             ResultSet rsEmp = DBUtil.dbExecuteQuery(selectStmt);
 
-            Employee employee = getEmployeeFromResultSet(rsEmp);
-
-            return employee;
+            return getEmployeeFromResultSet(rsEmp);
         } catch (SQLException e) {
             System.out.println("While searching an employee with " + empID + " id, an error occurred: " + e);
             throw e;
@@ -51,9 +49,7 @@ public class EmployeeDAO {
         try {
             ResultSet rsEmps = DBUtil.dbExecuteQuery(selectStmt);
 
-            ObservableList<Employee> empList = getEmployeeList(rsEmps);
-
-            return empList;
+            return getEmployeeList(rsEmps);
         } catch (SQLException e) {
             System.out.println("SQL select operation has been failed: " + e);
             throw e;
