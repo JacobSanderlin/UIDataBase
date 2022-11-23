@@ -1,6 +1,8 @@
 package com.jacob.uidatabase.util;
 
 
+import com.jacob.uidatabase.controller.LoginViewController;
+
 import javax.sql.RowSet.*;
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
@@ -20,21 +22,21 @@ public class DBUtil {
 
     private static Connection conn = null;
 
-    private static final String connStr = "jdbc:mysql://root:GetintheDB!@[localhost:3306]";
+    private static final String connStr = LoginViewController.getConnectionString();
 
-    public static void dbConnect() throws SQLException, ClassNotFoundException {
+    public static void dbConnect(String connectionString) throws SQLException, ClassNotFoundException {
         try {
             Class.forName(JDBC_DRIVER);
         } catch (ClassNotFoundException e) {
             System.out.println("Where is your Oracle JDBC Driver?");
-            e.printStackTrace();
+            e.printStackTrace( );
             throw e;
         }
 
         System.out.println("Oracle JDBC Driver Registered!");
 
         try {
-            conn = DriverManager.getConnection(connStr);
+            conn = DriverManager.getConnection(connectionString);
         } catch (SQLException e) {
             System.out.println("Connection Failed! Check output console" + e);
             e.printStackTrace();
@@ -58,7 +60,7 @@ public class DBUtil {
         ResultSet resultSet = null;
         CachedRowSet crs = null;
         try {
-            dbConnect();
+            dbConnect(connStr);
             System.out.println("Select statement: " + queryStmt + "\n");
             stmt = conn.createStatement();
 
@@ -87,7 +89,7 @@ public class DBUtil {
     public static void dbExecuteUpdate(String sqlStmt) throws SQLException, ClassNotFoundException {
         Statement stmt = null;
         try {
-            dbConnect();
+            dbConnect(connStr);
             stmt = conn.createStatement();
             stmt.executeUpdate(sqlStmt);
         } catch (SQLException e) {

@@ -18,9 +18,6 @@ public class Adopter {
     private final StringProperty phone_number;
     private final StringProperty eligibility;
     private final StringProperty street_Address;
-    private final StringProperty city;
-    private final StringProperty state;
-    private final IntegerProperty zip_Code;
 
     public Adopter() {
         this.adopter_id = new SimpleIntegerProperty();
@@ -29,9 +26,6 @@ public class Adopter {
         this.phone_number = new SimpleStringProperty();
         this.eligibility = new SimpleStringProperty();
         this.street_Address = new SimpleStringProperty();
-        this.city = new SimpleStringProperty();
-        this.state = new SimpleStringProperty();
-        this.zip_Code = new SimpleIntegerProperty();
 
     }
 
@@ -105,41 +99,5 @@ public class Adopter {
 
     public void setStreet_Address(String street_Address) {
         this.street_Address.set(street_Address);
-    }
-
-    public String getCity() {
-        return city.get();
-    }
-
-    public StringProperty cityProperty() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city.set(city);
-    }
-
-    public String getState() {
-        return state.get();
-    }
-
-    public StringProperty stateProperty() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state.set(state);
-    }
-
-    public int getZip_Code() {
-        return zip_Code.get();
-    }
-
-    public IntegerProperty zip_CodeProperty() {
-        return zip_Code;
-    }
-
-    public void setZip_Code(int zip_Code) {
-        this.zip_Code.set(zip_Code);
     }
 }

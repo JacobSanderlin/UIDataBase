@@ -1,16 +1,19 @@
 package com.jacob.uidatabase.controller;
 
-import com.jacob.uidatabase.model.Adopter;
-import com.jacob.uidatabase.model.AdopterDAO;
-import com.jacob.uidatabase.model.Employee;
-import com.jacob.uidatabase.model.EmployeeDAO;
+import com.jacob.uidatabase.MainApp;
+import com.jacob.uidatabase.model.*;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import org.w3c.dom.Text;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -103,12 +106,12 @@ public class EmployeeController {
     private TableColumn<Adopter, String> eligibilityColumn;
     @FXML
     private TableColumn<Adopter, String> street_AddressColumn;
-    @FXML
-    private TableColumn<Adopter, String> cityColumn;
-    @FXML
-    private TableColumn<Adopter, String> stateColumn;
-    @FXML
-    private TableColumn<Adopter, Integer> zip_CodeColumn;
+
+    private static Stage addStage;
+
+    public static void closeAddStage() {
+        addStage.close();
+    }
 
 
     /**
@@ -117,8 +120,12 @@ public class EmployeeController {
     @FXML
     private void searchEmployee(ActionEvent event) throws SQLException, ClassNotFoundException {
         try {
-            Employee emp = EmployeeDAO.searchEmployee(employee_IDText.getText());
-            populateAndShowEmployee(emp);
+            if (employee_IDText.getText().isEmpty())
+                populateEmployees(EmployeeDAO.searchEmployees());
+            else {
+                Employee emp = EmployeeDAO.searchEmployee(employee_IDText.getText());
+                populateAndShowEmployee(emp);
+            }
         } catch (SQLException e) {
             System.out.println("Error occurred while getting employee information from DB.\n" + e);
             throw e;
@@ -157,6 +164,7 @@ public class EmployeeController {
             t.setDaemon(true);
             return t;
         });
+        Adopter_Address address = new Adopter_Address();
 
         // Employee Table Column Initialization
         employee_IDColumn.setCellValueFactory(cellData -> cellData.getValue().employee_idProperty().asObject());
@@ -175,9 +183,6 @@ public class EmployeeController {
         phone_NumberColumn.setCellValueFactory(cellData -> cellData.getValue().phone_numberProperty());
         eligibilityColumn.setCellValueFactory(cellData -> cellData.getValue().eligibilityProperty());
         street_AddressColumn.setCellValueFactory(cellData -> cellData.getValue().street_AddressProperty());
-        cityColumn.setCellValueFactory(cellData -> cellData.getValue().cityProperty());
-//        stateColumn.setCellValueFactory(cellData -> cellData.getValue().stateProperty());
-//        zip_CodeColumn.setCellValueFactory(cellData -> cellData.getValue().zip_CodeProperty().asObject());
 
 
         populateInit();
@@ -205,6 +210,12 @@ public class EmployeeController {
             alert.show();
         }
     }
+
+    @FXML
+    private void populateAddresses (ObservableList<Adopter_Address> addressData) {
+        //Set items to the employeeTable
+
+    }
     //Populate Employees for TableView
     @FXML
     private void populateEmployees (ObservableList<Employee> empData) {
@@ -213,21 +224,32 @@ public class EmployeeController {
     }
     @FXML
     private void insertEmployee (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+
         try {
-            EmployeeDAO.insertEmp(roleText.getText(), fNameText.getText(),
-                    Integer.parseInt(employee_IDText.getText()),sexText.getText(), Integer.parseInt(SSNText.getText()),
-                    lNameText.getText(), Integer.parseInt(hoursText.getText()), Integer.parseInt(supervisor_IDText.getText()));
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Employee Added");
-            alert.setHeaderText("Employee was inserted into the database successfully!");
-            alert.show();
-        } catch (SQLException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error!");
-            alert.setHeaderText("An error occurred while trying to insert the employee to the database!");
-            alert.show();
-            throw e;
+            addStage = new Stage();
+            TitledPane addView = FXMLLoader.load(MainApp.class.getResource("/view/AddEmployeeView.fxml"));
+            Scene scene = new Scene(addView);
+            addStage.setScene(scene);
+            addStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+//        try {
+//            EmployeeDAO.insertEmp(roleText.getText(), fNameText.getText(),
+//                    Integer.parseInt(employee_IDText.getText()),sexText.getText(), Integer.parseInt(SSNText.getText()),
+//                    lNameText.getText(), Integer.parseInt(hoursText.getText()), Integer.parseInt(supervisor_IDText.getText()));
+//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//            alert.setTitle("Employee Added");
+//            alert.setHeaderText("Employee was inserted into the database successfully!");
+//            alert.show();
+//        } catch (SQLException e) {
+//            Alert alert = new Alert(Alert.AlertType.ERROR);
+//            alert.setTitle("Error!");
+//            alert.setHeaderText("An error occurred while trying to insert the employee to the database!");
+//            alert.show();
+//            throw e;
+//        }
     }
 
     @FXML
@@ -250,6 +272,7 @@ public class EmployeeController {
     private void deleteEmployee (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         try {
             EmployeeDAO.deleteEmpWithID(employee_IDText.getText());
+
         } catch (SQLException e) {
             throw e;
         }

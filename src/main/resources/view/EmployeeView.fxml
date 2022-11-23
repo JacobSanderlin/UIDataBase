@@ -121,7 +121,7 @@
                   </GridPane>
                   <HBox prefHeight="31.0" prefWidth="600.0">
                      <children>
-                        <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchEmployees" prefHeight="25.0" prefWidth="75.0" text="Search">
+                        <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchEmployee" prefHeight="25.0" prefWidth="75.0" text="Search">
                            <HBox.margin>
                               <Insets bottom="5.0" left="35.0" right="5.0" top="5.0" />
                            </HBox.margin>
@@ -219,16 +219,6 @@
                               <Insets right="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label layoutX="210.0" layoutY="78.0" prefHeight="17.0" prefWidth="75.0" text="City:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets right="5.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label layoutX="210.0" layoutY="128.0" prefHeight="17.0" prefWidth="75.0" text="State:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
-                           <GridPane.margin>
-                              <Insets right="5.0" />
-                           </GridPane.margin>
-                        </Label>
                         <TextField fx:id="fNameAdopterText" layoutX="115.0" layoutY="23.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -250,26 +240,6 @@
                            </GridPane.margin>
                         </TextField>
                         <TextField fx:id="streetAddressText" layoutX="310.0" layoutY="23.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <TextField fx:id="cityText" layoutX="310.0" layoutY="74.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <TextField fx:id="stateText" layoutX="310.0" layoutY="124.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
-                           <GridPane.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <Label layoutX="230.0" layoutY="137.0" prefHeight="17.0" prefWidth="75.0" text="Zip Code:" GridPane.columnIndex="4" GridPane.halignment="RIGHT">
-                           <GridPane.margin>
-                              <Insets />
-                           </GridPane.margin>
-                        </Label>
-                        <TextField fx:id="zipCodeText" layoutX="315.0" layoutY="17.0" GridPane.columnIndex="5">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
@@ -310,10 +280,7 @@
                               <TableColumn fx:id="adopterLNameColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" resizable="false" text="LName" />
                               <TableColumn fx:id="phone_NumberColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Phone_Number" />
                               <TableColumn fx:id="eligibilityColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Eligibility" />
-                              <TableColumn fx:id="street_AddressColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Street_Address" />
-                              <TableColumn fx:id="cityColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="City" />
-                              <TableColumn fx:id="stateColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="State" />
-                              <TableColumn fx:id="zip_CodeColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Zip_Code" />
+                              <TableColumn fx:id="street_AddressColumn" maxWidth="200.0" minWidth="75.0" prefWidth="78.0" text="Street_Address" />
                            </columns>
                         </TableView>
                      </content>

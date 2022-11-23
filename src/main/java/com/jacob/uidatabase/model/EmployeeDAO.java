@@ -15,7 +15,7 @@ import java.sql.SQLException;
 public class EmployeeDAO {
 
     public static Employee searchEmployee(String empID) throws SQLException, ClassNotFoundException {
-        String selectStmt = "SELECT * FROM employees WHERE employee_id="+empID;
+        String selectStmt = "SELECT * FROM animalshelter.employee WHERE employee_id="+empID;
 
         try {
             ResultSet rsEmp = DBUtil.dbExecuteQuery(selectStmt);
@@ -32,8 +32,8 @@ public class EmployeeDAO {
         if (rs.next()) {
             emp = new Employee();
             emp.setEmployee_id(rs.getInt("EMPLOYEE_ID"));
-            emp.setFirst_name(rs.getString("FIRST_NAME"));
-            emp.setLast_name(rs.getString("LAST_NAME"));
+            emp.setFirst_name(rs.getString("fName"));
+            emp.setLast_name(rs.getString("lname"));
             emp.setHours(rs.getInt("HOURS"));
             emp.setSSN(rs.getInt("SSN"));
             emp.setRole(rs.getString("ROLE"));
