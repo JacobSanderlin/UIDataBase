@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -24,6 +25,9 @@ import java.util.concurrent.Executors;
  * @created : 11/13/2022, Sunday
  **/
 public class EmployeeController {
+
+    private SelectionModel<Employee> employeeSelectionModel;
+    private SelectionModel<Adopter> adopterSelectionModel;
 
     /**
      *  Employee View Fields
@@ -87,12 +91,6 @@ public class EmployeeController {
     @FXML
     private TextField streetAddressText;
     @FXML
-    private TextField cityText;
-    @FXML
-    private TextField stateText;
-    @FXML
-    private TextField zipCodeText;
-    @FXML
     private TableView<Adopter> adopterTable;
     @FXML
     private TableColumn<Adopter, Integer> adopter_IDColumn;
@@ -107,10 +105,32 @@ public class EmployeeController {
     @FXML
     private TableColumn<Adopter, String> street_AddressColumn;
 
+    /**
+     * Animal View Fields
+     */
+    @FXML
+    private TextField animalID;
+    @FXML
+    private TextField animalName;
+    @FXML
+    private TextField animalCage;
+    @FXML
+    private TextField species;
+    @FXML
+    private TextField adoptionStatus;
+    @FXML
+    private TextField price;
+    @FXML
+    private TextField animalAge;
+    @FXML
+    private TableView<Animal> animalTable;
+
+
     private static Stage addStage;
 
     public static void closeAddStage() {
         addStage.close();
+
     }
 
 
@@ -120,11 +140,33 @@ public class EmployeeController {
     @FXML
     private void searchEmployee(ActionEvent event) throws SQLException, ClassNotFoundException {
         try {
-            if (employee_IDText.getText().isEmpty())
+            ObservableList<Employee> emp;
+            if (!employee_IDText.getText().isEmpty()) {
+                emp = EmployeeDAO.searchEmployee(employee_IDText.getText(), "employee_id");
+                populateEmployees(emp);
+            } else if (!fNameText.getText().isEmpty()) {
+                emp = EmployeeDAO.searchEmployee("'" + fNameText.getText() + "'", "fName");
+                populateEmployees(emp);
+            } else if (!lNameText.getText().isEmpty()) {
+                emp = EmployeeDAO.searchEmployee("'" + lNameText.getText() + "'", "lName");
+                populateEmployees(emp);
+            } else if (!SSNText.getText().isEmpty()) {
+                emp = EmployeeDAO.searchEmployee(SSNText.getText(), "SSN");
+                populateEmployees(emp);
+            } else if (!hoursText.getText().isEmpty()) {
+                emp = EmployeeDAO.searchEmployee(hoursText.getText(), "hours");
+                populateEmployees(emp);
+            } else if (!sexText.getText().isEmpty()) {
+                emp = EmployeeDAO.searchEmployee("'" + sexText.getText() + "'", "sex");
+                populateEmployees(emp);
+            } else if (!roleText.getText().isEmpty()) {
+                emp = EmployeeDAO.searchEmployee("'" + roleText.getText() + "'", "role");
+                populateEmployees(emp);
+            } else if (!supervisor_IDText.getText().isEmpty()) {
+                emp = EmployeeDAO.searchEmployee(supervisor_IDText.getText(), "supervisor_id");
+                populateEmployees(emp);
+            } else {
                 populateEmployees(EmployeeDAO.searchEmployees());
-            else {
-                Employee emp = EmployeeDAO.searchEmployee(employee_IDText.getText());
-                populateAndShowEmployee(emp);
             }
         } catch (SQLException e) {
             System.out.println("Error occurred while getting employee information from DB.\n" + e);
@@ -164,7 +206,11 @@ public class EmployeeController {
             t.setDaemon(true);
             return t;
         });
-        Adopter_Address address = new Adopter_Address();
+        employeeSelectionModel = employeeTable.getSelectionModel();
+        employeeTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
+        adopterSelectionModel = adopterTable.getSelectionModel();
+        adopterTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
         // Employee Table Column Initialization
         employee_IDColumn.setCellValueFactory(cellData -> cellData.getValue().employee_idProperty().asObject());
@@ -210,6 +256,7 @@ public class EmployeeController {
             alert.show();
         }
     }
+
 
     @FXML
     private void populateAddresses (ObservableList<Adopter_Address> addressData) {
@@ -271,8 +318,8 @@ public class EmployeeController {
     @FXML
     private void deleteEmployee (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         try {
-            EmployeeDAO.deleteEmpWithID(employee_IDText.getText());
-
+            EmployeeDAO.deleteEmpWithID(String.valueOf(employeeSelectionModel.getSelectedItem().getEmployee_id()));
+            populateEmployees(EmployeeDAO.searchEmployees());
         } catch (SQLException e) {
             throw e;
         }
@@ -296,11 +343,35 @@ public class EmployeeController {
         phoneNumberText.clear();
         eligibilityText.clear();
         streetAddressText.clear();
-        stateText.clear();
-        cityText.clear();
-        zipCodeText.clear();
+    }
+    @FXML
+    private void clearHealthEntries(ActionEvent event){
+        adopterIDText.clear();
+        fNameAdopterText.clear();
+        lNameAdopterText.clear();
+        phoneNumberText.clear();
+        eligibilityText.clear();
+        streetAddressText.clear();
+    }
+    @FXML
+    private void clearAnimalEntries(ActionEvent event){
+        adopterIDText.clear();
+        fNameAdopterText.clear();
+        lNameAdopterText.clear();
+        phoneNumberText.clear();
+        eligibilityText.clear();
+        streetAddressText.clear();
     }
 
+    @FXML
+    private void clearAREntries(ActionEvent event){
+        adopterIDText.clear();
+        fNameAdopterText.clear();
+        lNameAdopterText.clear();
+        phoneNumberText.clear();
+        eligibilityText.clear();
+        streetAddressText.clear();
+    }
     @FXML
     private void populateAdopter (Adopter adopter) throws ClassNotFoundException {
         //Declare and ObservableList for table view
@@ -314,10 +385,30 @@ public class EmployeeController {
     @FXML
     private void searchAdopter(ActionEvent event) throws SQLException, ClassNotFoundException {
         try {
-            Adopter ado = AdopterDAO.searchAdopter(adopterIDText.getText());
-            populateAndShowAdopter(ado);
+            ObservableList<Adopter> adopter;
+            if (!adopterIDText.getText().isEmpty()) {
+                adopter = AdopterDAO.searchAdopter(adopterIDText.getText(), "adopter_id");
+                populateAdopters(adopter);
+            } else if (!fNameAdopterText.getText().isEmpty()) {
+                adopter = AdopterDAO.searchAdopter("'" + fNameAdopterText.getText() + "'", "adopter_fName");
+                populateAdopters(adopter);
+            } else if (!lNameAdopterText.getText().isEmpty()) {
+                adopter = AdopterDAO.searchAdopter("'" + lNameAdopterText.getText() + "'", "adopter_lName");
+                populateAdopters(adopter);
+            } else if (!phoneNumberText.getText().isEmpty()) {
+                adopter = AdopterDAO.searchAdopter(phoneNumberText.getText(), "adopter_phonenumber");
+                populateAdopters(adopter);
+            } else if (!streetAddressText.getText().isEmpty()) {
+                adopter = AdopterDAO.searchAdopter(streetAddressText.getText(), "adopter_Address");
+                populateAdopters(adopter);
+            } else if (!eligibilityText.getText().isEmpty()) {
+                adopter = AdopterDAO.searchAdopter("'" + eligibilityText.getText() + "'", "adopter_approval");
+                populateAdopters(adopter);
+            }  else {
+                populateAdopters(AdopterDAO.searchAdopters());
+            }
         } catch (SQLException e) {
-            System.out.println("Error occurred while getting employee information from DB.\n" + e);
+            System.out.println("Error occurred while getting adopter information from DB.\n" + e);
             throw e;
         }
     }

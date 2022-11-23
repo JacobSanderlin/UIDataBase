@@ -14,15 +14,15 @@ import java.sql.SQLException;
  **/
 public class AdopterDAO {
 
-    public static Adopter searchAdopter(String adopterID) throws SQLException, ClassNotFoundException {
-        String selectStmt = "SELECT * FROM adopter WHERE adopter_id="+ adopterID;
+    public static ObservableList<Adopter> searchAdopter(String search, String searchField) throws SQLException, ClassNotFoundException {
+        String selectStmt = "SELECT * FROM animalshelter.adopter WHERE " + searchField +"="+search;
 
         try {
-            ResultSet rsAdopter = DBUtil.dbExecuteQuery(selectStmt);
+            ResultSet rsEmp = DBUtil.dbExecuteQuery(selectStmt);
 
-            return getAdopterFromResultSet(rsAdopter);
+            return getAdopterList(rsEmp);
         } catch (SQLException e) {
-            System.out.println("While searching an employee with " + adopterID + " id, an error occurred: " + e);
+            System.out.println("While searching, an error occurred: " + e);
             throw e;
         }
     }

@@ -57,4 +57,9 @@ public class AddEmployeeController {
             throw e;
         }
     }
+
+    @FXML
+    private void cancel(ActionEvent event) {
+        EmployeeController.closeAddStage();
+    }
 }

@@ -14,15 +14,15 @@ import java.sql.SQLException;
  **/
 public class EmployeeDAO {
 
-    public static Employee searchEmployee(String empID) throws SQLException, ClassNotFoundException {
-        String selectStmt = "SELECT * FROM animalshelter.employee WHERE employee_id="+empID;
+    public static ObservableList<Employee> searchEmployee(String search, String searchField) throws SQLException, ClassNotFoundException {
+        String selectStmt = "SELECT * FROM animalshelter.employee WHERE " + searchField +"="+search;
 
         try {
             ResultSet rsEmp = DBUtil.dbExecuteQuery(selectStmt);
 
-            return getEmployeeFromResultSet(rsEmp);
+            return getEmployeeList(rsEmp);
         } catch (SQLException e) {
-            System.out.println("While searching an employee with " + empID + " id, an error occurred: " + e);
+            System.out.println("While searching, an error occurred: " + e);
             throw e;
         }
     }
@@ -76,11 +76,9 @@ public class EmployeeDAO {
     }
 
     public static void deleteEmpWithID(String empID) throws SQLException, ClassNotFoundException {
-        String updateStmt = "Begin\n" +
-                "   DELETE FROM employees\n" +
-                "         WHERE employee_id ="+ empID +";\n" +
-                "   COMMIT;\n" +
-                "END;";
+        String updateStmt =
+                "   DELETE FROM animalshelter.employee\n" +
+                "         WHERE employee_id ="+ empID +";\n";
 
         try {
             DBUtil.dbExecuteUpdate(updateStmt);

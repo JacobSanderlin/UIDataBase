@@ -131,7 +131,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="deleteButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Delete">
+                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteEmployee" prefHeight="25.0" prefWidth="67.0" text="Delete">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
@@ -248,12 +248,12 @@
                   </GridPane>
                   <HBox prefHeight="31.0" prefWidth="600.0">
                      <children>
-                        <Button fx:id="adopterSearchButton" mnemonicParsing="false" onAction="#searchEmployees" prefHeight="25.0" prefWidth="75.0" text="Search">
+                        <Button fx:id="adopterSearchButton" mnemonicParsing="false" onAction="#searchAdopter" prefHeight="25.0" prefWidth="75.0" text="Search">
                            <HBox.margin>
                               <Insets bottom="5.0" left="35.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="adopterAddButton" mnemonicParsing="false" onAction="#insertEmployee" prefHeight="25.0" prefWidth="72.0" text="Add">
+                        <Button fx:id="adopterAddButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Add">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
@@ -281,6 +281,394 @@
                               <TableColumn fx:id="phone_NumberColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Phone_Number" />
                               <TableColumn fx:id="eligibilityColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Eligibility" />
                               <TableColumn fx:id="street_AddressColumn" maxWidth="200.0" minWidth="75.0" prefWidth="78.0" text="Street_Address" />
+                           </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </content>
+      </Tab>
+      <Tab closable="false" text="Animal">
+         <content>
+            <VBox prefHeight="400.0" prefWidth="600.0">
+               <children>
+                  <GridPane prefHeight="154.0" prefWidth="600.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="75.0" text="Animal ID:" GridPane.halignment="RIGHT">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="animalID" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Label layoutX="30.0" layoutY="27.0" prefHeight="17.0" prefWidth="75.0" text="Name:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label layoutX="35.0" layoutY="78.0" prefHeight="17.0" prefWidth="75.0" text="Cage Number:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="128.0" prefHeight="17.0" prefWidth="75.0" text="Species:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="178.0" prefHeight="17.0" prefWidth="75.0" text="Adoption Status:" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label layoutX="210.0" layoutY="27.0" prefHeight="17.0" prefWidth="75.0" text="Price:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="animalName" layoutX="115.0" layoutY="23.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="animalCage" layoutX="110.0" layoutY="74.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="species" layoutX="110.0" layoutY="124.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="adoptionStatus" layoutX="110.0" layoutY="174.0" GridPane.columnIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="price" layoutX="310.0" layoutY="23.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Label layoutX="230.0" layoutY="60.0" prefHeight="17.0" prefWidth="75.0" text="Age:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="animalAge" layoutX="315.0" layoutY="56.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                     </children>
+                  </GridPane>
+                  <HBox prefHeight="31.0" prefWidth="600.0">
+                     <children>
+                        <Button fx:id="animalSearch" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Search">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="35.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="animalAdd" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Add">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="animalDelete" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Delete">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="animalClear" mnemonicParsing="false" onAction="#clearAnimalEntries" prefHeight="25.0" prefWidth="69.0" text="Clear">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="100.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <TableView fx:id="animalTable" fixedCellSize="25.0" prefHeight="1000.0" prefWidth="1000.0">
+                           <columns>
+                              <TableColumn prefWidth="25.0" />
+                              <TableColumn fx:id="animIDColumn" maxWidth="100.0" minWidth="75.0" prefWidth="-1.0" text="Animal_ID" />
+                              <TableColumn fx:id="animNameColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Name" />
+                              <TableColumn fx:id="animCageNumberColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" resizable="false" text="Cage_Number" />
+                              <TableColumn fx:id="animSpeciesColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Species" />
+                              <TableColumn fx:id="animAdoptionStatusColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Adoption_Status" />
+                              <TableColumn fx:id="animPriceColumn" maxWidth="200.0" minWidth="75.0" prefWidth="78.0" text="Price" />
+                              <TableColumn fx:id="animAgeColumn" maxWidth="200.0" minWidth="75.0" prefWidth="78.0" text="Age" />
+                              <TableColumn fx:id="animNotesColumn" maxWidth="431.0" minWidth="75.0" prefWidth="322.0" text="Notes/Comments" />
+                           </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </content>
+      </Tab>
+      <Tab closable="false" text="Health Records">
+         <content>
+            <VBox prefHeight="400.0" prefWidth="600.0">
+               <children>
+                  <GridPane prefHeight="154.0" prefWidth="600.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="75.0" text="Animal ID:" GridPane.halignment="RIGHT">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="animalIDHR" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Label layoutX="30.0" layoutY="27.0" prefHeight="17.0" prefWidth="75.0" text="Castrated:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label layoutX="35.0" layoutY="78.0" prefHeight="17.0" prefWidth="75.0" text="Rabies_Vaccine:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="128.0" prefHeight="17.0" prefWidth="75.0" text="Record Number:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="castrated" layoutX="115.0" layoutY="23.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="rabies" layoutX="110.0" layoutY="74.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="healthRecord" layoutX="110.0" layoutY="124.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                     </children>
+                  </GridPane>
+                  <HBox prefHeight="31.0" prefWidth="600.0">
+                     <children>
+                        <Button fx:id="healthSearch" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Search">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="35.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="healthAdd" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Add">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="healthDelete" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Delete">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="healthClear" mnemonicParsing="false" onAction="#clearHealthEntries" prefHeight="25.0" prefWidth="69.0" text="Clear">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="100.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <TableView fx:id="healthRecordTable" fixedCellSize="25.0" prefHeight="1000.0" prefWidth="1000.0">
+                           <columns>
+                              <TableColumn prefWidth="25.0" />
+                              <TableColumn fx:id="animalIDColumn" maxWidth="100.0" minWidth="75.0" prefWidth="-1.0" text="Animal_ID" />
+                              <TableColumn fx:id="castratedColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Castrated" />
+                              <TableColumn fx:id="rabiesColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" resizable="false" text="Rabies_Vaccine" />
+                              <TableColumn fx:id="recordNumberColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Record_Number" />
+                              <TableColumn fx:id="street_AddressColumn1111" maxWidth="431.0" minWidth="75.0" prefWidth="322.0" text="Notes/Comments" />
+                           </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </content>
+      </Tab>
+      <Tab closable="false" text="Adoption Record">
+         <content>
+            <VBox prefHeight="400.0" prefWidth="600.0">
+               <children>
+                  <GridPane prefHeight="154.0" prefWidth="600.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="75.0" text="Adopter ID:" GridPane.halignment="RIGHT">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="adopterID" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Label layoutX="30.0" layoutY="27.0" prefHeight="17.0" prefWidth="75.0" text="First Name:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label layoutX="35.0" layoutY="78.0" prefHeight="17.0" prefWidth="75.0" text="Last Name:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="128.0" prefHeight="17.0" prefWidth="75.0" text="Phone Number:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="178.0" prefHeight="17.0" prefWidth="75.0" text="Case Number:" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label layoutX="210.0" layoutY="27.0" prefHeight="17.0" prefWidth="75.0" text="Animal ID:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label layoutX="210.0" layoutY="78.0" prefHeight="17.0" prefWidth="75.0" text="Date Adopted:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label layoutX="210.0" layoutY="128.0" prefHeight="17.0" prefWidth="75.0" text="Adopter Approval:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="adopterFName" layoutX="115.0" layoutY="23.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="adopterLName" layoutX="110.0" layoutY="74.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="adopterPhoneNum" layoutX="110.0" layoutY="124.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="caseNumber" layoutX="110.0" layoutY="174.0" GridPane.columnIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="animalIDAR" layoutX="310.0" layoutY="23.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="dateAdopted" layoutX="310.0" layoutY="74.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="adopterApprovalRecord" layoutX="310.0" layoutY="124.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                     </children>
+                  </GridPane>
+                  <HBox prefHeight="31.0" prefWidth="600.0">
+                     <children>
+                        <Button fx:id="searchButton1" mnemonicParsing="false" onAction="#searchEmployee" prefHeight="25.0" prefWidth="75.0" text="Search">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="35.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="addButton1" mnemonicParsing="false" onAction="#insertEmployee" prefHeight="25.0" prefWidth="72.0" text="Add">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="deleteButton1" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Delete">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="arClear" mnemonicParsing="false" onAction="#clearAREntries" prefHeight="25.0" prefWidth="69.0" text="Clear">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="100.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <TableView fx:id="adoptionRecordTable" fixedCellSize="25.0" prefHeight="1000.0" prefWidth="800.0">
+                           <columns>
+                              <TableColumn prefWidth="25.0" />
+                              <TableColumn fx:id="adopterRecordIDColumn" maxWidth="100.0" minWidth="75.0" prefWidth="-1.0" text="Adopter_ID" />
+                              <TableColumn fx:id="adopterRecordFNameColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="FName" />
+                              <TableColumn fx:id="adopterRecordLNameColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" resizable="false" text="LName" />
+                              <TableColumn fx:id="adopterRecordPhoneNumberColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Phone_Number" />
+                              <TableColumn fx:id="adopterRecordCaseNumberColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Case_Number" />
+                              <TableColumn fx:id="adopterRecordAnimalIDColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Animal_ID" />
+                              <TableColumn fx:id="adopterRecordDateAdoptedColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Date_Adopted" />
+                              <TableColumn fx:id="adopterRecordAdopterApprovalColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Adopter_Approval" />
                            </columns>
                         </TableView>
                      </content>
