@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78266198-f290-4a60-8927-9bdde3aa2319" name="Changes" comment="Created Login View. Updated Adopter, and Adopter Address. Created Add Employee View. Employee insert functions corrected.">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/AddAdopterView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/AddAnimalView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/AddHealthRecordView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/EditAdopterView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/EditAnimalView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/EditEmployeeView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/EditHealthRecordView.fxml" afterDir="false" />
+    <list default="true" id="78266198-f290-4a60-8927-9bdde3aa2319" name="Changes" comment="Created FXML files for more stages, updated Employee DAO and Adopter DAO for data searching, Added table item selection and deletion">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/AnimalDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/AddEmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/AddEmployeeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/AdopterDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/AdopterDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/EmployeeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/AddEmployeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/AddEmployeeView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Animal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/EmployeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/EmployeeView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -117,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669204395184</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Created FXML files for more stages, updated Employee DAO and Adopter DAO for data searching, Added table item selection and deletion">
+      <created>1669241739481</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669241739481</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -141,7 +139,8 @@
     <MESSAGE value="Ubdated DBUI Model" />
     <MESSAGE value="Added Data Access Objects, and Object classes. Included updated Schema Files." />
     <MESSAGE value="Created Login View. Updated Adopter, and Adopter Address. Created Add Employee View. Employee insert functions corrected." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created Login View. Updated Adopter, and Adopter Address. Created Add Employee View. Employee insert functions corrected." />
+    <MESSAGE value="Created FXML files for more stages, updated Employee DAO and Adopter DAO for data searching, Added table item selection and deletion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created FXML files for more stages, updated Employee DAO and Adopter DAO for data searching, Added table item selection and deletion" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

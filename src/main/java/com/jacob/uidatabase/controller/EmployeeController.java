@@ -28,6 +28,7 @@ public class EmployeeController {
 
     private SelectionModel<Employee> employeeSelectionModel;
     private SelectionModel<Adopter> adopterSelectionModel;
+    private SelectionModel<Animal> animalSelectionModel;
 
     /**
      *  Employee View Fields
@@ -124,6 +125,23 @@ public class EmployeeController {
     private TextField animalAge;
     @FXML
     private TableView<Animal> animalTable;
+    @FXML
+    private TableColumn<Animal, Integer> animIDColumn;
+    @FXML
+    private TableColumn<Animal, String> animNameColumn;
+    @FXML
+    private TableColumn<Animal, Integer> animCageNumberColumn;
+    @FXML
+    private TableColumn<Animal, String> animSpeciesColumn;
+    @FXML
+    private TableColumn<Animal, String> animAdoptionStatusColumn;
+    @FXML
+    private TableColumn<Animal, Double> animPriceColumn;
+    @FXML
+    private TableColumn<Animal, Integer> animAgeColumn;
+    @FXML
+    private TableColumn<Animal, String> animNotesColumn;
+
 
 
     private static Stage addStage;
@@ -191,6 +209,7 @@ public class EmployeeController {
         try {
             populateEmployees(EmployeeDAO.searchEmployees());
             populateAdopters(AdopterDAO.searchAdopters());
+            populateAnimals(AnimalDAO.searchAnimals());
         } catch (SQLException e) {
             System.out.println("Error in populateInit: " + e);
             throw e;
@@ -212,6 +231,9 @@ public class EmployeeController {
         adopterSelectionModel = adopterTable.getSelectionModel();
         adopterTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
+        animalSelectionModel = animalTable.getSelectionModel();
+        animalTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
         // Employee Table Column Initialization
         employee_IDColumn.setCellValueFactory(cellData -> cellData.getValue().employee_idProperty().asObject());
         fNameColumn.setCellValueFactory(cellData -> cellData.getValue().first_nameProperty());
@@ -230,6 +252,14 @@ public class EmployeeController {
         eligibilityColumn.setCellValueFactory(cellData -> cellData.getValue().eligibilityProperty());
         street_AddressColumn.setCellValueFactory(cellData -> cellData.getValue().street_AddressProperty());
 
+        // Animal Table Column Initialization
+        animIDColumn.setCellValueFactory(cellData -> cellData.getValue().animalIDProperty().asObject());
+        animAgeColumn.setCellValueFactory(cellData -> cellData.getValue().ageProperty().asObject());
+        animNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        animCageNumberColumn.setCellValueFactory(cellData -> cellData.getValue().cageNumberProperty().asObject());
+        animSpeciesColumn.setCellValueFactory(cellData -> cellData.getValue().speciesProperty());
+        animAdoptionStatusColumn.setCellValueFactory(cellData -> cellData.getValue().adoptionStatusProperty());
+        animPriceColumn.setCellValueFactory(cellData -> cellData.getValue().priceProperty().asObject());
 
         populateInit();
     }
@@ -355,12 +385,13 @@ public class EmployeeController {
     }
     @FXML
     private void clearAnimalEntries(ActionEvent event){
-        adopterIDText.clear();
-        fNameAdopterText.clear();
-        lNameAdopterText.clear();
-        phoneNumberText.clear();
-        eligibilityText.clear();
-        streetAddressText.clear();
+        animalID.clear();
+        animalAge.clear();
+        animalName.clear();
+        animalCage.clear();
+        species.clear();
+        adoptionStatus.clear();
+        price.clear();
     }
 
     @FXML
@@ -396,10 +427,10 @@ public class EmployeeController {
                 adopter = AdopterDAO.searchAdopter("'" + lNameAdopterText.getText() + "'", "adopter_lName");
                 populateAdopters(adopter);
             } else if (!phoneNumberText.getText().isEmpty()) {
-                adopter = AdopterDAO.searchAdopter(phoneNumberText.getText(), "adopter_phonenumber");
+                adopter = AdopterDAO.searchAdopter("'" + phoneNumberText.getText() + "'", "adopter_phonenumber");
                 populateAdopters(adopter);
             } else if (!streetAddressText.getText().isEmpty()) {
-                adopter = AdopterDAO.searchAdopter(streetAddressText.getText(), "adopter_Address");
+                adopter = AdopterDAO.searchAdopter("'" + streetAddressText.getText() + "'", "adopter_Address");
                 populateAdopters(adopter);
             } else if (!eligibilityText.getText().isEmpty()) {
                 adopter = AdopterDAO.searchAdopter("'" + eligibilityText.getText() + "'", "adopter_approval");
@@ -437,4 +468,49 @@ public class EmployeeController {
 
         }
     }
+
+    /**
+     *  Animal View Functions
+     */
+
+    @FXML
+    private void populateAnimals(ObservableList<Animal> animalData) {
+        //Set items to the employeeTable
+        animalTable.setItems(animalData);
+    }
+
+    @FXML
+    private void searchAnimal(ActionEvent event) throws SQLException, ClassNotFoundException {
+        try {
+            ObservableList<Animal> animals;
+            if (!animalID.getText().isEmpty()) {
+                animals = AnimalDAO.searchAnimal(animalID.getText(), "animal_id");
+                populateAnimals(animals);
+            } else if (!animalName.getText().isEmpty()) {
+                animals = AnimalDAO.searchAnimal("'" + animalName.getText() + "'", "animal_name");
+                populateAnimals(animals);
+            } else if (!adoptionStatus.getText().isEmpty()) {
+                animals = AnimalDAO.searchAnimal("'" + adoptionStatus.getText() + "'", "adoption_status");
+                populateAnimals(animals);
+            } else if (!animalCage.getText().isEmpty()) {
+                animals = AnimalDAO.searchAnimal(animalCage.getText(), "CageNum");
+                populateAnimals(animals);
+            } else if (!animalAge.getText().isEmpty()) {
+                animals = AnimalDAO.searchAnimal(animalAge.getText(), "age");
+                populateAnimals(animals);
+            } else if (!species.getText().isEmpty()) {
+                animals = AnimalDAO.searchAnimal("'" + species.getText() + "'", "species");
+                populateAnimals(animals);
+            } else if (!price.getText().isEmpty()) {
+                animals = AnimalDAO.searchAnimal(price.getText(), "price");
+                populateAnimals(animals);
+            } else {
+                populateAnimals(AnimalDAO.searchAnimals());
+            }
+        } catch (SQLException e) {
+            System.out.println("Error occurred while getting adopter information from DB.\n" + e);
+            throw e;
+        }
+    }
+
 }
