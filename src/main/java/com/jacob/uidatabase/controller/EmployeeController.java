@@ -187,6 +187,8 @@ public class EmployeeController {
     @FXML
     private TextField adopterApprovalRecord;
     @FXML
+    private TextField animalNameAR;
+    @FXML
     private TableView<Adoption_Record> adoptionRecordTable;
     @FXML
     private TableColumn<Adoption_Record, Integer> adopterRecordIDColumn;
@@ -204,6 +206,8 @@ public class EmployeeController {
     private TableColumn<Adoption_Record, Date> adopterRecordDateAdoptedColumn;
     @FXML
     private TableColumn<Adoption_Record, String> adopterRecordAdopterApprovalColumn;
+    @FXML
+    private TableColumn<Adoption_Record, String> adopterRecordAnimalNameColumn;
 
 
 
@@ -273,6 +277,8 @@ public class EmployeeController {
             populateEmployees(EmployeeDAO.searchEmployees());
             populateAdopters(AdopterDAO.searchAdopters());
             populateAnimals(AnimalDAO.searchAnimals());
+            populateHealthRecords(Health_RecordDAO.searchHealthRecords());
+            populateAdoptionRecords(Adoption_RecordDAO.searchAdoptionRecords());
         } catch (SQLException e) {
             System.out.println("Error in populateInit: " + e);
             throw e;
@@ -323,6 +329,23 @@ public class EmployeeController {
         animSpeciesColumn.setCellValueFactory(cellData -> cellData.getValue().speciesProperty());
         animAdoptionStatusColumn.setCellValueFactory(cellData -> cellData.getValue().adoptionStatusProperty());
         animPriceColumn.setCellValueFactory(cellData -> cellData.getValue().priceProperty().asObject());
+
+        // Health Record Table Column Initialization
+        animalIDColumn.setCellValueFactory(cellData -> cellData.getValue().animalIDProperty().asObject());
+        castratedColumn.setCellValueFactory(cellData -> cellData.getValue().castratedProperty().asString());
+        rabiesColumn.setCellValueFactory(cellData -> cellData.getValue().vaccinatedProperty().asString());
+        recordNumberColumn.setCellValueFactory(cellData -> cellData.getValue().recordNumberProperty().asObject());
+
+        // Adoption Record Table Column Initialization
+        adopterRecordIDColumn.setCellValueFactory(cellData -> cellData.getValue().adopterIDProperty().asObject());
+        adopterRecordFNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
+        adopterRecordLNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
+        adopterRecordPhoneNumberColumn.setCellValueFactory(cellData -> cellData.getValue().phoneNumberProperty());
+        adopterRecordCaseNumberColumn.setCellValueFactory(cellData -> cellData.getValue().caseNumberProperty().asObject());
+        adopterRecordAnimalIDColumn.setCellValueFactory(cellData -> cellData.getValue().animalIDProperty().asObject());
+        adopterRecordDateAdoptedColumn.setCellValueFactory(cellData -> cellData.getValue().dateAdoptedProperty());
+        adopterRecordAdopterApprovalColumn.setCellValueFactory(cellData -> cellData.getValue().adopterApprovalProperty());
+        adopterRecordAnimalNameColumn.setCellValueFactory(cellData -> cellData.getValue().animalNameProperty());
 
         populateInit();
     }
@@ -574,6 +597,25 @@ public class EmployeeController {
             System.out.println("Error occurred while getting adopter information from DB.\n" + e);
             throw e;
         }
+    }
+
+    /**
+     * Health Record View Functions
+     */
+    @FXML
+    private void populateHealthRecords(ObservableList<Health_Record> healthRecordData) {
+        //Set items to the employeeTable
+        healthRecordTable.setItems(healthRecordData);
+    }
+
+
+    /**
+     *  Adoption Record View Functions
+     */
+
+    @FXML
+    private void populateAdoptionRecords(ObservableList<Adoption_Record> adoptionRecordData) {
+        adoptionRecordTable.setItems(adoptionRecordData);
     }
 
 }

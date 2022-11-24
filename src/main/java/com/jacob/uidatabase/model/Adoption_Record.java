@@ -19,6 +19,7 @@ public class Adoption_Record {
     private final IntegerProperty animalID;
     private final ObjectProperty<Date> dateAdopted;
     private final StringProperty adopterApproval;
+    private final StringProperty animalName;
 
     public Adoption_Record() {
         this.adopterID = new SimpleIntegerProperty();
@@ -29,6 +30,7 @@ public class Adoption_Record {
         this.animalID = new SimpleIntegerProperty();
         this.dateAdopted = new SimpleObjectProperty<>();
         this.adopterApproval = new SimpleStringProperty();
+        this.animalName = new SimpleStringProperty();
     }
 
     public int getAdopterID() {
@@ -125,5 +127,17 @@ public class Adoption_Record {
 
     public void setAdopterApproval(String adopterApproval) {
         this.adopterApproval.set(adopterApproval);
+    }
+
+    public String getAnimalName() {
+        return animalName.get();
+    }
+
+    public StringProperty animalNameProperty() {
+        return animalName;
+    }
+
+    public void setAnimalName(String animalName) {
+        this.animalName.set(animalName);
     }
 }

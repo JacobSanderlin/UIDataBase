@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78266198-f290-4a60-8927-9bdde3aa2319" name="Changes" comment="Connected FXML TextFields for all Tabs in EmployeeView.fxml, Entry clearing added.">
+    <list default="true" id="78266198-f290-4a60-8927-9bdde3aa2319" name="Changes" comment="updated SQL dump files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/EmployeeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Adoption_Record.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Adoption_Record.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Health_Record.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Health_Record.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Adoption_RecordDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Adoption_RecordDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Health_RecordDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Health_RecordDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/EmployeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/EmployeeView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669268485825</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="updated SQL dump files">
+      <created>1669270956066</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1669270956066</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -154,7 +164,8 @@
     <MESSAGE value="Created FXML files for more stages, updated Employee DAO and Adopter DAO for data searching, Added table item selection and deletion" />
     <MESSAGE value="Logic added to Animal Object and AnimalDAO. EmployeeController Updated to search animals, and clear animal text field entries." />
     <MESSAGE value="Connected FXML TextFields for all Tabs in EmployeeView.fxml, Entry clearing added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Connected FXML TextFields for all Tabs in EmployeeView.fxml, Entry clearing added." />
+    <MESSAGE value="updated SQL dump files" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated SQL dump files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

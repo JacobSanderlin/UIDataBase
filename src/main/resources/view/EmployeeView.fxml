@@ -630,6 +630,16 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
+                        <TextField fx:id="animalNameAR" layoutX="315.0" layoutY="17.0" GridPane.columnIndex="5">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Label layoutX="230.0" layoutY="21.0" prefHeight="17.0" prefWidth="75.0" text="Animal Name:" GridPane.columnIndex="4" GridPane.halignment="RIGHT">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
                      </children>
                   </GridPane>
                   <HBox prefHeight="31.0" prefWidth="600.0">
@@ -669,6 +679,7 @@
                               <TableColumn fx:id="adopterRecordAnimalIDColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Animal_ID" />
                               <TableColumn fx:id="adopterRecordDateAdoptedColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Date_Adopted" />
                               <TableColumn fx:id="adopterRecordAdopterApprovalColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Adopter_Approval" />
+                              <TableColumn fx:id="adopterRecordAnimalNameColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Animal_Name" />
                            </columns>
                         </TableView>
                      </content>
