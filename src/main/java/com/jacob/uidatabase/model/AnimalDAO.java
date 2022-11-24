@@ -61,7 +61,6 @@ public class AnimalDAO {
 
         while (rs.next()) {
             Animal animal = new Animal();
-            animal = new Animal();
             animal.setAnimalID(rs.getInt("animal_id"));
             animal.setAge(rs.getInt("age"));
             animal.setName(rs.getString("animal_name"));
@@ -73,5 +72,18 @@ public class AnimalDAO {
         }
 
         return animals;
+    }
+
+    public static void insertAnimal(int id, String name, int age, String species, int cage, String status, double price) throws SQLException, ClassNotFoundException {
+        String updateStmt =
+                "INSERT INTO animalshelter.animal\n" +
+                        "VALUES (" + age + ", " + cage + ", " + id + ", " + price + ", '"
+                        + name + "', '" + species + "','" + status + ");";
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Error occurred while INSERT Operation: " + e);
+            throw e;
+        }
     }
 }
