@@ -76,4 +76,18 @@ public class Adoption_RecordDAO {
 
         return recordList;
     }
+    public static void insertAdoptionRecord(int id, String fname, String lname, String name,
+                                            int aid, int caseid, String phone, String approval,
+                                            String date) throws SQLException, ClassNotFoundException {
+        String updateStmt =
+                "INSERT INTO animalshelter.adoption_record\n" +
+                        "VALUES (" + id + ", '" + phone + "', '" + fname + "', '" + name + "', "
+                        + caseid + ", " + date + ",'" + approval + "', " + aid + ", '" + lname + "');";
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Error occurred while INSERT Operation: " + e);
+            throw e;
+        }
+    }
 }

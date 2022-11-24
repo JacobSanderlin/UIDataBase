@@ -5,6 +5,7 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="188.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jacob.uidatabase.controller.LoginViewController">
   <children>
@@ -15,6 +16,9 @@
         <TextField fx:id="usernameText" layoutX="150.0" layoutY="44.0" prefHeight="25.0" prefWidth="335.0" promptText="Username" />
         <PasswordField fx:id="passwordText" layoutX="150.0" layoutY="74.0" prefWidth="335.0" promptText="Password" />
         <Button fx:id="connectButton" layoutX="235.0" layoutY="108.0" mnemonicParsing="false" onAction="#handleConnect" prefHeight="25.0" prefWidth="128.0" text="Connect" />
-        <Label layoutX="292.0" layoutY="140.0" prefHeight="17.0" prefWidth="14.0" textAlignment="CENTER" textFill="RED" />
+        <Label fx:id="result" contentDisplay="TEXT_ONLY" layoutX="251.0" layoutY="142.0" prefHeight="25.0" prefWidth="98.0" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
   </children>
 </AnchorPane>

@@ -20,6 +20,8 @@ public class LoginViewController {
     @FXML
     private TextField usernameText;
     @FXML
+    private Label result;
+    @FXML
     private PasswordField passwordText;
     @FXML
     private Button connectButton;
@@ -36,6 +38,7 @@ public class LoginViewController {
                 hostname + "]";
     }
     public void handleConnect(ActionEvent event) throws SQLException, ClassNotFoundException {
+        result.setText("Connecting...");
         setConnectionString(usernameText.getText(), passwordText.getText(), hostnameText.getText());
         DBUtil.dbConnect(connectionString);
         MainApp.connect();

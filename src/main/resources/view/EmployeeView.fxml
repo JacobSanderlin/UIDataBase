@@ -488,7 +488,7 @@
                               <Insets bottom="5.0" left="35.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="healthAdd" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Add">
+                        <Button fx:id="healthAdd" mnemonicParsing="false" onAction="#insertHealthRecord" prefHeight="25.0" prefWidth="72.0" text="Add">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
@@ -647,7 +647,7 @@
                               <Insets bottom="5.0" left="35.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="addButton1" mnemonicParsing="false" onAction="#insertEmployee" prefHeight="25.0" prefWidth="72.0" text="Add">
+                        <Button fx:id="addButton1" mnemonicParsing="false" onAction="#insertAdoptionRecord" prefHeight="25.0" prefWidth="72.0" text="Add">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>

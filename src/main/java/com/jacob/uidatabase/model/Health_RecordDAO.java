@@ -67,4 +67,15 @@ public class Health_RecordDAO {
 
         return recordList;
     }
+
+    public static void insertHealthRecord(int id, int record, boolean castrated, boolean vaccinated) throws SQLException, ClassNotFoundException {
+        String updateStmt = "INSERT INTO animalshelter.health_records\n" +
+                "VALUES (" + id + ", " + record + ", " + castrated + ", " + vaccinated + ");";
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.println("Error occurred while INSERT operation: " + e);
+            throw e;
+        }
+    }
 }

@@ -614,6 +614,20 @@ public class EmployeeController {
         }
     }
 
+    @FXML
+    private void insertAnimal(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+
+        try {
+            addStage = new Stage();
+            TitledPane addView = FXMLLoader.load(MainApp.class.getResource("/view/AddAnimalView.fxml"));
+            Scene scene = new Scene(addView);
+            addStage.setScene(scene);
+            addStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * Health Record View Functions
      */
@@ -649,6 +663,19 @@ public class EmployeeController {
     @FXML
     private void searchHealthRecords(ActionEvent event) throws SQLException, ClassNotFoundException {
         populateHealthRecords(Health_RecordDAO.searchHealthRecords());
+    }
+    @FXML
+    private void insertHealthRecord(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+
+        try {
+            addStage = new Stage();
+            TitledPane addView = FXMLLoader.load(MainApp.class.getResource("/view/AddHealthRecordView.fxml"));
+            Scene scene = new Scene(addView);
+            addStage.setScene(scene);
+            addStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -699,6 +726,19 @@ public class EmployeeController {
         } catch (SQLException e) {
             System.out.println("Error occurred while getting adopter information from DB.\n" + e);
             throw e;
+        }
+    }
+    @FXML
+    private void insertAdoptionRecord(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+
+        try {
+            addStage = new Stage();
+            TitledPane addView = FXMLLoader.load(MainApp.class.getResource("/view/AddAdoptionRecordView.fxml"));
+            Scene scene = new Scene(addView);
+            addStage.setScene(scene);
+            addStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

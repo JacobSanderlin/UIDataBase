@@ -1,8 +1,10 @@
 package com.jacob.uidatabase.model;
 
+import com.jacob.uidatabase.util.DBUtil;
 import javafx.beans.property.*;
 
 import java.sql.Date;
+import java.sql.SQLException;
 
 /**
  * @author : Jacob Sanderlin
@@ -32,6 +34,8 @@ public class Adoption_Record {
         this.adopterApproval = new SimpleStringProperty();
         this.animalName = new SimpleStringProperty();
     }
+
+
 
     public int getAdopterID() {
         return adopterID.get();

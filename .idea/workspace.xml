@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78266198-f290-4a60-8927-9bdde3aa2319" name="Changes" comment="Created Controllers for Add Views, Fixed bug in Adopter DAO and Adoption Record DAO. Added logic to AddAdopterView.">
+    <list default="true" id="78266198-f290-4a60-8927-9bdde3aa2319" name="Changes" comment="Added animal row insertion, AddAnimalView and AddAnimalController implemented.">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/AddAdoptionRecordView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/AddAnimalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/AddAnimalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/AnimalDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/AnimalDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/AddAnimalView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/AddAnimalView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/AddAdoptionRecordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/AddAdoptionRecordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/AddHealthRecordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/AddHealthRecordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/LoginViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/LoginViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Adoption_Record.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Adoption_Record.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Adoption_RecordDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Adoption_RecordDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Health_RecordDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Health_RecordDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/AddHealthRecordView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/AddHealthRecordView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/EmployeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/EmployeeView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/LoginView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/LoginView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -149,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669275879685</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added animal row insertion, AddAnimalView and AddAnimalController implemented.">
+      <created>1669282141851</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669282141851</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -179,7 +194,8 @@
     <MESSAGE value="updated SQL dump files" />
     <MESSAGE value="Implemented Logic into Adoption_RecordDAO and Health_RecordDAO" />
     <MESSAGE value="Created Controllers for Add Views, Fixed bug in Adopter DAO and Adoption Record DAO. Added logic to AddAdopterView." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created Controllers for Add Views, Fixed bug in Adopter DAO and Adoption Record DAO. Added logic to AddAdopterView." />
+    <MESSAGE value="Added animal row insertion, AddAnimalView and AddAnimalController implemented." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added animal row insertion, AddAnimalView and AddAnimalController implemented." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
