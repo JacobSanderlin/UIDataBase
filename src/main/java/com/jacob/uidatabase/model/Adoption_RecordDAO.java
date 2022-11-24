@@ -32,12 +32,12 @@ public class Adoption_RecordDAO {
         if (rs.next()) {
             record = new Adoption_Record();
             record.setAdopterID(rs.getInt("ADOPTER_ID"));
-            record.setPhoneNumber(rs.getString("ADOPTER_Phone#"));
-            record.setFirstName(rs.getString("ADOPTER_FNAME"));
+            record.setPhoneNumber(rs.getString("ADOPTER_Phone"));
+            record.setFirstName(rs.getString("ADOPTER_NAME"));
             record.setLastName(rs.getString("ADOPTER_LNAME"));
             record.setAnimalID(rs.getInt("Animal_ID"));
-            record.setAdopterApproval(rs.getString("adopterApproval"));
-            record.setCaseNumber(rs.getInt("Case_ID#"));
+            record.setAdopterApproval(rs.getString("adopter_Approval"));
+            record.setCaseNumber(rs.getInt("Case_ID"));
             record.setDateAdopted(rs.getDate("Date_Adopted"));
             record.setAnimalName(rs.getString("animal_name"));
         }
@@ -63,12 +63,12 @@ public class Adoption_RecordDAO {
         while (rs.next()) {
             Adoption_Record record = new Adoption_Record();
             record.setAdopterID(rs.getInt("ADOPTER_ID"));
-            record.setPhoneNumber(rs.getString("ADOPTER_Phone#"));
-            record.setFirstName(rs.getString("ADOPTER_FNAME"));
+            record.setPhoneNumber(rs.getString("ADOPTER_Phone"));
+            record.setFirstName(rs.getString("ADOPTER_NAME"));
             record.setLastName(rs.getString("ADOPTER_LNAME"));
             record.setAnimalID(rs.getInt("Animal_ID"));
-            record.setAdopterApproval(rs.getString("adopterApproval"));
-            record.setCaseNumber(rs.getInt("Case_ID#"));
+            record.setAdopterApproval(rs.getString("adopter_Approval"));
+            record.setCaseNumber(rs.getInt("Case_ID"));
             record.setDateAdopted(rs.getDate("Date_Adopted"));
             record.setAnimalName(rs.getString("animal_name"));
             recordList.add(record);

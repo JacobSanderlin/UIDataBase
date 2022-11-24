@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
@@ -253,7 +254,7 @@
                               <Insets bottom="5.0" left="35.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="adopterAddButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Add">
+                        <Button fx:id="adopterAddButton" mnemonicParsing="false" onAction="#insertAdopter" prefHeight="25.0" prefWidth="72.0" text="Add">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
@@ -471,26 +472,18 @@
                               <Insets right="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="castrated" layoutX="115.0" layoutY="23.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <TextField fx:id="rabies" layoutX="110.0" layoutY="74.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </GridPane.margin>
-                        </TextField>
                         <TextField fx:id="healthRecord" layoutX="110.0" layoutY="124.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
+                        <CheckBox fx:id="castrated" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <CheckBox fx:id="rabies" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                   <HBox prefHeight="31.0" prefWidth="600.0">
                      <children>
-                        <Button fx:id="healthSearch" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Search">
+                        <Button fx:id="healthSearch" mnemonicParsing="false" onAction="#searchHealthRecord" prefHeight="25.0" prefWidth="75.0" text="Search">
                            <HBox.margin>
                               <Insets bottom="5.0" left="35.0" right="5.0" top="5.0" />
                            </HBox.margin>
@@ -501,6 +494,11 @@
                            </HBox.margin>
                         </Button>
                         <Button fx:id="healthDelete" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Delete">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="healthSearchAll" layoutX="45.0" layoutY="15.0" mnemonicParsing="false" onAction="#searchHealthRecords" prefHeight="25.0" prefWidth="75.0" text="Search All">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
@@ -644,7 +642,7 @@
                   </GridPane>
                   <HBox prefHeight="31.0" prefWidth="600.0">
                      <children>
-                        <Button fx:id="searchButton1" mnemonicParsing="false" onAction="#searchEmployee" prefHeight="25.0" prefWidth="75.0" text="Search">
+                        <Button fx:id="searchButton1" mnemonicParsing="false" onAction="#searchAdoptionRecord" prefHeight="25.0" prefWidth="75.0" text="Search">
                            <HBox.margin>
                               <Insets bottom="5.0" left="35.0" right="5.0" top="5.0" />
                            </HBox.margin>

@@ -31,7 +31,7 @@ public class Health_RecordDAO {
         Health_Record record = null;
         if (rs.next()) {
             record = new Health_Record();
-            record.setRecordNumber(rs.getInt("record#"));
+            record.setRecordNumber(rs.getInt("record"));
             record.setAnimalID(rs.getInt("animal_id"));
             record.setCastrated(rs.getBoolean("castrated"));
             record.setVaccinated(rs.getBoolean("rabies_vaccine"));
@@ -58,7 +58,7 @@ public class Health_RecordDAO {
         while (rs.next()) {
             Health_Record record = new Health_Record();
             record = new Health_Record();
-            record.setRecordNumber(rs.getInt("record#"));
+            record.setRecordNumber(rs.getInt("record"));
             record.setAnimalID(rs.getInt("animal_id"));
             record.setCastrated(rs.getBoolean("castrated"));
             record.setVaccinated(rs.getBoolean("rabies_vaccine"));

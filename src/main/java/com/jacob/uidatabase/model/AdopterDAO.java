@@ -70,4 +70,20 @@ public class AdopterDAO {
 
         return adopterList;
     }
+
+    public static void insertAdopter(int id, String fName, String lName, String phoneNumber, String approval, String address) throws SQLException, ClassNotFoundException {
+        //INSERT INTO `animalshelter`.`employee`
+        //(`Role`, `Employee_FName`, `Employee_ID`, `Employee_Sex`, `Employee_SSN`, `Employee_LName`, `Employee_Hours`, `Supervisor_ID`)
+        //VALUES ('General\n', 'John', '1234567', 'M', '111223333', 'Smith', '25', '7654321');
+        String updateStmt =
+                "INSERT INTO animalshelter.adopter\n" +
+                        "VALUES (" + id + ", '" + approval + "', '" + fName + "', '" + address + "', '"
+                        + lName + "', '" + phoneNumber + "');";
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Error occurred while INSERT Operation: " + e);
+            throw e;
+        }
+    }
 }

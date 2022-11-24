@@ -149,9 +149,9 @@ public class EmployeeController {
     @FXML
     private TextField animalIDHR;
     @FXML
-    private TextField castrated;
+    private CheckBox castrated;
     @FXML
-    private TextField rabies;
+    private CheckBox rabies;
     @FXML
     private TextField healthRecord;
     @FXML
@@ -452,6 +452,20 @@ public class EmployeeController {
     }
 
     @FXML
+    private void insertAdopter (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+
+        try {
+            addStage = new Stage();
+            TitledPane addView = FXMLLoader.load(MainApp.class.getResource("/view/AddAdopterView.fxml"));
+            Scene scene = new Scene(addView);
+            addStage.setScene(scene);
+            addStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     private void clearAdopterEntries(ActionEvent event){
         adopterIDText.clear();
         fNameAdopterText.clear();
@@ -463,8 +477,8 @@ public class EmployeeController {
     @FXML
     private void clearHealthEntries(ActionEvent event){
         animalIDHR.clear();
-        castrated.clear();
-        rabies.clear();
+        castrated.setSelected(false);
+        rabies.setSelected(false);
         healthRecord.clear();
     }
     @FXML
@@ -488,6 +502,7 @@ public class EmployeeController {
         animalIDAR.clear();
         dateAdopted.clear();
         adopterApprovalRecord.clear();
+        animalNameAR.clear();
     }
     @FXML
     private void populateAdopter (Adopter adopter) throws ClassNotFoundException {
@@ -608,6 +623,34 @@ public class EmployeeController {
         healthRecordTable.setItems(healthRecordData);
     }
 
+    @FXML
+    private void searchHealthRecord(ActionEvent event) throws SQLException, ClassNotFoundException {
+        try {
+            ObservableList<Health_Record> records;
+            if (!animalIDHR.getText().isEmpty()) {
+                records = Health_RecordDAO.searchHealthRecord(animalIDHR.getText(), "animal_id");
+                populateHealthRecords(records);
+            } else if (castrated.isSelected()) {
+                records = Health_RecordDAO.searchHealthRecord(String.valueOf(castrated.isSelected()), "castrated");
+                populateHealthRecords(records);
+            } else if (rabies.isSelected()) {
+                records = Health_RecordDAO.searchHealthRecord(String.valueOf(rabies.isSelected()), "rabies_vaccine");
+                populateHealthRecords(records);
+            } else if (!healthRecord.getText().isEmpty()) {
+                records = Health_RecordDAO.searchHealthRecord(healthRecord.getText(), "record");
+                populateHealthRecords(records);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error occurred while getting adopter information from DB.\n" + e);
+            throw e;
+        }
+    }
+
+    @FXML
+    private void searchHealthRecords(ActionEvent event) throws SQLException, ClassNotFoundException {
+        populateHealthRecords(Health_RecordDAO.searchHealthRecords());
+    }
+
 
     /**
      *  Adoption Record View Functions
@@ -616,6 +659,47 @@ public class EmployeeController {
     @FXML
     private void populateAdoptionRecords(ObservableList<Adoption_Record> adoptionRecordData) {
         adoptionRecordTable.setItems(adoptionRecordData);
+    }
+
+    @FXML
+    private void searchAdoptionRecord(ActionEvent event) throws SQLException, ClassNotFoundException {
+        try {
+            ObservableList<Adoption_Record> records;
+            if (!dateAdopted.getText().isEmpty()) {
+                String date = dateAdopted.getText().replaceAll("-", "");
+                records = Adoption_RecordDAO.searchAdoptionRecord(date, "date_adopted");
+                populateAdoptionRecords(records);
+            } else if (!adopterID.getText().isEmpty()) {
+                records = Adoption_RecordDAO.searchAdoptionRecord(adopterID.getText(), "adopter_ID");
+                populateAdoptionRecords(records);
+            } else if (!adopterFName.getText().isEmpty()) {
+                records = Adoption_RecordDAO.searchAdoptionRecord("'" + adopterFName.getText() + "'", "Adopter_Name");
+                populateAdoptionRecords(records);
+            } else if (!animalIDAR.getText().isEmpty()) {
+                records = Adoption_RecordDAO.searchAdoptionRecord(animalIDAR.getText(), "animal_id");
+                populateAdoptionRecords(records);
+            } else if (!caseNumber.getText().isEmpty()) {
+                records = Adoption_RecordDAO.searchAdoptionRecord(caseNumber.getText(), "case_ID");
+                populateAdoptionRecords(records);
+            } else if (!adopterLName.getText().isEmpty()) {
+                records = Adoption_RecordDAO.searchAdoptionRecord("'" + adopterLName.getText() + "'", "Adopter_LName");
+                populateAdoptionRecords(records);
+            } else if (!adopterPhoneNum.getText().isEmpty()) {
+                records = Adoption_RecordDAO.searchAdoptionRecord("'" + adopterPhoneNum.getText() + "'", "adopter_Phone");
+                populateAdoptionRecords(records);
+            } else if (!adopterApprovalRecord.getText().isEmpty()) {
+                records = Adoption_RecordDAO.searchAdoptionRecord("'" + adopterApprovalRecord.getText() + "'", "Adopter_approval");
+                populateAdoptionRecords(records);
+            } else if (!animalNameAR.getText().isEmpty()) {
+                records = Adoption_RecordDAO.searchAdoptionRecord("'" + animalNameAR.getText() + "'", "animal_name");
+                populateAdoptionRecords(records);
+            } else {
+                populateAdoptionRecords(Adoption_RecordDAO.searchAdoptionRecords());
+            }
+        } catch (SQLException e) {
+            System.out.println("Error occurred while getting adopter information from DB.\n" + e);
+            throw e;
+        }
     }
 
 }
