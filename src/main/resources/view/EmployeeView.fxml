@@ -521,7 +521,7 @@
                               <TableColumn fx:id="castratedColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Castrated" />
                               <TableColumn fx:id="rabiesColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" resizable="false" text="Rabies_Vaccine" />
                               <TableColumn fx:id="recordNumberColumn" maxWidth="100.0" minWidth="75.0" prefWidth="78.0" text="Record_Number" />
-                              <TableColumn fx:id="street_AddressColumn1111" maxWidth="431.0" minWidth="75.0" prefWidth="322.0" text="Notes/Comments" />
+                              <TableColumn fx:id="healthRecordNotesColumn" maxWidth="431.0" minWidth="75.0" prefWidth="322.0" text="Notes/Comments" />
                            </columns>
                         </TableView>
                      </content>

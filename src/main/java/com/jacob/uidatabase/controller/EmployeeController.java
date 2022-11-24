@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.concurrent.Executor;
@@ -141,6 +142,68 @@ public class EmployeeController {
     private TableColumn<Animal, Integer> animAgeColumn;
     @FXML
     private TableColumn<Animal, String> animNotesColumn;
+
+    /**
+     * Health Record Fields
+     */
+    @FXML
+    private TextField animalIDHR;
+    @FXML
+    private TextField castrated;
+    @FXML
+    private TextField rabies;
+    @FXML
+    private TextField healthRecord;
+    @FXML
+    private TableView<Health_Record> healthRecordTable;
+    @FXML
+    private TableColumn<Health_Record, Integer> animalIDColumn;
+    @FXML
+    private TableColumn<Health_Record, String> castratedColumn;
+    @FXML
+    private TableColumn<Health_Record, String> rabiesColumn;
+    @FXML
+    private TableColumn<Health_Record, Integer> recordNumberColumn;
+    @FXML
+    private TableColumn<Health_Record, String> healthRecordNotesColumn;
+
+    /**
+     * Adoption Record Fields
+     */
+    @FXML
+    private TextField adopterID;
+    @FXML
+    private TextField adopterFName;
+    @FXML
+    private TextField adopterLName;
+    @FXML
+    private TextField adopterPhoneNum;
+    @FXML
+    private TextField caseNumber;
+    @FXML
+    private TextField animalIDAR;
+    @FXML
+    private TextField dateAdopted;
+    @FXML
+    private TextField adopterApprovalRecord;
+    @FXML
+    private TableView<Adoption_Record> adoptionRecordTable;
+    @FXML
+    private TableColumn<Adoption_Record, Integer> adopterRecordIDColumn;
+    @FXML
+    private TableColumn<Adoption_Record, String> adopterRecordFNameColumn;
+    @FXML
+    private TableColumn<Adoption_Record, String> adopterRecordLNameColumn;
+    @FXML
+    private TableColumn<Adoption_Record, String> adopterRecordPhoneNumberColumn;
+    @FXML
+    private TableColumn<Adoption_Record, Integer> adopterRecordCaseNumberColumn;
+    @FXML
+    private TableColumn<Adoption_Record, Integer> adopterRecordAnimalIDColumn;
+    @FXML
+    private TableColumn<Adoption_Record, Date> adopterRecordDateAdoptedColumn;
+    @FXML
+    private TableColumn<Adoption_Record, String> adopterRecordAdopterApprovalColumn;
 
 
 
@@ -376,12 +439,10 @@ public class EmployeeController {
     }
     @FXML
     private void clearHealthEntries(ActionEvent event){
-        adopterIDText.clear();
-        fNameAdopterText.clear();
-        lNameAdopterText.clear();
-        phoneNumberText.clear();
-        eligibilityText.clear();
-        streetAddressText.clear();
+        animalIDHR.clear();
+        castrated.clear();
+        rabies.clear();
+        healthRecord.clear();
     }
     @FXML
     private void clearAnimalEntries(ActionEvent event){
@@ -396,12 +457,14 @@ public class EmployeeController {
 
     @FXML
     private void clearAREntries(ActionEvent event){
-        adopterIDText.clear();
-        fNameAdopterText.clear();
-        lNameAdopterText.clear();
-        phoneNumberText.clear();
-        eligibilityText.clear();
-        streetAddressText.clear();
+        adopterID.clear();
+        adopterFName.clear();
+        adopterLName.clear();
+        adopterPhoneNum.clear();
+        caseNumber.clear();
+        animalIDAR.clear();
+        dateAdopted.clear();
+        adopterApprovalRecord.clear();
     }
     @FXML
     private void populateAdopter (Adopter adopter) throws ClassNotFoundException {

@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78266198-f290-4a60-8927-9bdde3aa2319" name="Changes" comment="Created FXML files for more stages, updated Employee DAO and Adopter DAO for data searching, Added table item selection and deletion">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/AnimalDAO.java" afterDir="false" />
+    <list default="true" id="78266198-f290-4a60-8927-9bdde3aa2319" name="Changes" comment="Logic added to Animal Object and AnimalDAO. EmployeeController Updated to search animals, and clear animal text field entries.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Animal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/EmployeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/EmployeeView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669241739481</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Logic added to Animal Object and AnimalDAO. EmployeeController Updated to search animals, and clear animal text field entries.">
+      <created>1669245233799</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669245233799</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -140,7 +145,8 @@
     <MESSAGE value="Added Data Access Objects, and Object classes. Included updated Schema Files." />
     <MESSAGE value="Created Login View. Updated Adopter, and Adopter Address. Created Add Employee View. Employee insert functions corrected." />
     <MESSAGE value="Created FXML files for more stages, updated Employee DAO and Adopter DAO for data searching, Added table item selection and deletion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created FXML files for more stages, updated Employee DAO and Adopter DAO for data searching, Added table item selection and deletion" />
+    <MESSAGE value="Logic added to Animal Object and AnimalDAO. EmployeeController Updated to search animals, and clear animal text field entries." />
+    <option name="LAST_COMMIT_MESSAGE" value="Logic added to Animal Object and AnimalDAO. EmployeeController Updated to search animals, and clear animal text field entries." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
