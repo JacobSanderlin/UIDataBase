@@ -40,7 +40,7 @@ CREATE TABLE `animal` (
 
 LOCK TABLES `animal` WRITE;
 /*!40000 ALTER TABLE `animal` DISABLE KEYS */;
-INSERT INTO `animal` VALUES (1,45,234,150,'Bud','Dog','Adopted'),(5,6,34571,20,'Mr.Freckles','Cat','Not_Adopted'),(2,21,45710,75,'Sprinkles','Cat','Not_Adopted'),(0,24,78112,175,'Coco','Dog','Not_Adopted');
+INSERT INTO `animal` VALUES (2,4,116112537,150.5,'Orange','Cat','Not_Adopted'),(1,45,123456789,150,'Bud','Dog','Adopted'),(3,2,137474629,163.5,'George','Cat','Not_Adopted'),(13,7,158836721,176.5,'Luna','Dog','Not_Adopted'),(6,1,180198814,189.5,'Max','Dog','Adopted'),(2,23,201560906,202.5,'Greg','Cat','Not_Adopted'),(3,32,222922998,215.5,'Lobster','Cat','Not_Adopted'),(3,22,244285091,228.5,'Mori','Dog','Not_Adopted'),(2,43,265647183,241.5,'Red','Dog','Adopted'),(5,34,287009276,254.5,'Kooper','Cat','Not_Adopted'),(5,6,293012311,20,'Mr.Freckles','Cat','Not_Adopted'),(2,11,308371368,267.5,'Patty','Cat','Not_Adopted'),(2,21,456213212,75,'Sprinkles','Cat','Not_Adopted'),(0,24,781126235,175,'Coco','Dog','Not_Adopted'),(5,12,947504444,137.5,'Sasha','Dog','Adopted');
 /*!40000 ALTER TABLE `animal` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-21 15:25:43
+-- Dump completed on 2022-11-24  1:21:39
