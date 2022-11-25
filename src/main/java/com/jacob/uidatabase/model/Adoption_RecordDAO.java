@@ -90,4 +90,17 @@ public class Adoption_RecordDAO {
             throw e;
         }
     }
+
+    public static void deleteAdoptionRecordWithID(String record) throws SQLException, ClassNotFoundException {
+        String updateStmt =
+                "   DELETE FROM animalshelter.adoption_record\n" +
+                        "         WHERE case_ID ="+ record +";\n";
+
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.println("Error occurred while DELETE Operation: " + e);
+            throw e;
+        }
+    }
 }

@@ -68,6 +68,19 @@ public class Health_RecordDAO {
         return recordList;
     }
 
+    public static void deleteHealthRecordWithID(String record) throws SQLException, ClassNotFoundException {
+        String updateStmt =
+                "   DELETE FROM animalshelter.health_records\n" +
+                        "         WHERE record ="+ record +";\n";
+
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.println("Error occurred while DELETE Operation: " + e);
+            throw e;
+        }
+    }
+
     public static void insertHealthRecord(int id, int record, boolean castrated, boolean vaccinated) throws SQLException, ClassNotFoundException {
         String updateStmt = "INSERT INTO animalshelter.health_records\n" +
                 "VALUES (" + id + ", " + record + ", " + castrated + ", " + vaccinated + ");";

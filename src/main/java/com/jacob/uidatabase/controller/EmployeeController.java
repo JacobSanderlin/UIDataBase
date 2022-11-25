@@ -636,6 +636,15 @@ public class EmployeeController {
     }
 
     @FXML
+    private void deleteAdopter (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        try {
+            AdopterDAO.deleteAdopterWithID(String.valueOf(adopterSelectionModel.getSelectedItem().getAdopter_id()));
+            populateEmployees(EmployeeDAO.searchEmployees());
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+    @FXML
     private void insertAdopter (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
         try {
@@ -765,6 +774,15 @@ public class EmployeeController {
     }
 
     @FXML
+    private void deleteAnimal (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        try {
+            AnimalDAO.deleteAnimalWithID(String.valueOf(animalSelectionModel.getSelectedItem().getAnimalID()));
+            populateEmployees(EmployeeDAO.searchEmployees());
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+    @FXML
     private void searchAnimal(ActionEvent event) throws SQLException, ClassNotFoundException {
         try {
             ObservableList<Animal> animals;
@@ -823,6 +841,16 @@ public class EmployeeController {
     }
 
     @FXML
+    private void deleteHealthRecord (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        try {
+            Health_RecordDAO.deleteHealthRecordWithID(String.valueOf(healthRecordSelectionModel.getSelectedItem().getRecordNumber()));
+            populateEmployees(EmployeeDAO.searchEmployees());
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    @FXML
     private void searchHealthRecord(ActionEvent event) throws SQLException, ClassNotFoundException {
         try {
             ObservableList<Health_Record> records;
@@ -871,6 +899,16 @@ public class EmployeeController {
     @FXML
     private void populateAdoptionRecords(ObservableList<Adoption_Record> adoptionRecordData) {
         adoptionRecordTable.setItems(adoptionRecordData);
+    }
+
+    @FXML
+    private void deleteAdoptionRecord (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        try {
+            Adoption_RecordDAO.deleteAdoptionRecordWithID(String.valueOf(adoptionRecordSelectionModel.getSelectedItem().getCaseNumber()));
+            populateEmployees(EmployeeDAO.searchEmployees());
+        } catch (SQLException e) {
+            throw e;
+        }
     }
 
     @FXML

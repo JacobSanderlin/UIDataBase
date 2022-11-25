@@ -86,4 +86,17 @@ public class AnimalDAO {
             throw e;
         }
     }
+
+    public static void deleteAnimalWithID(String animalID) throws SQLException, ClassNotFoundException {
+        String updateStmt =
+                "   DELETE FROM animalshelter.animal\n" +
+                        "         WHERE animal_id ="+ animalID +";\n";
+
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.println("Error occurred while DELETE Operation: " + e);
+            throw e;
+        }
+    }
 }

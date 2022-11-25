@@ -27,6 +27,18 @@ public class AdopterDAO {
         }
     }
 
+    public static void deleteAdopterWithID(String adopterID) throws SQLException, ClassNotFoundException {
+        String updateStmt =
+                "   DELETE FROM animalshelter.adopter\n" +
+                        "         WHERE adopter_ID ="+ adopterID +";\n";
+
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.println("Error occurred while DELETE Operation: " + e);
+            throw e;
+        }
+    }
     private static Adopter getAdopterFromResultSet(ResultSet rs) throws SQLException {
         Adopter adopter = null;
         if (rs.next()) {

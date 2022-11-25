@@ -259,7 +259,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="adopterDeleteButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Delete">
+                        <Button fx:id="adopterDeleteButton" mnemonicParsing="false" onAction="#deleteAdopter" prefHeight="25.0" prefWidth="67.0" text="Delete">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
@@ -394,7 +394,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="animalDelete" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Delete">
+                        <Button fx:id="animalDelete" mnemonicParsing="false" onAction="#deleteAnimal" prefHeight="25.0" prefWidth="67.0" text="Delete">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
@@ -493,7 +493,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="healthDelete" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Delete">
+                        <Button fx:id="healthDelete" mnemonicParsing="false" onAction="#deleteHealthRecord" prefHeight="25.0" prefWidth="67.0" text="Delete">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
@@ -652,7 +652,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="deleteButton1" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Delete">
+                        <Button fx:id="deleteButton1" mnemonicParsing="false" onAction="#deleteAdoptionRecord" prefHeight="25.0" prefWidth="67.0" text="Delete">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
