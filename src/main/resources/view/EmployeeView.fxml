@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<TabPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jacob.uidatabase.controller.EmployeeController">
+<TabPane onMouseEntered="#refresh" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jacob.uidatabase.controller.EmployeeController">
    <tabs>
       <Tab closable="false" text="Employee">
          <content>
@@ -389,7 +389,7 @@
                               <Insets bottom="5.0" left="35.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="animalAdd" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Add">
+                        <Button fx:id="animalAdd" mnemonicParsing="false" onAction="#insertAnimal" prefHeight="25.0" prefWidth="72.0" text="Add">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>

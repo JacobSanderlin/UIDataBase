@@ -16,6 +16,7 @@ public class Animal {
     private final StringProperty name;
     private final StringProperty adoptionStatus;
     private final StringProperty species;
+    private String notes = null;
 
     public Animal() {
         this.animalID = new SimpleIntegerProperty();
@@ -25,6 +26,15 @@ public class Animal {
         this.name = new SimpleStringProperty();
         this.adoptionStatus = new SimpleStringProperty();
         this.species = new SimpleStringProperty();
+        this.notes = "";
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 
     public int getAnimalID() {

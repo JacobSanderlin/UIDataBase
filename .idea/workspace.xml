@@ -4,19 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78266198-f290-4a60-8927-9bdde3aa2319" name="Changes" comment="Added animal row insertion, AddAnimalView and AddAnimalController implemented.">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/AddAdoptionRecordView.fxml" afterDir="false" />
+    <list default="true" id="78266198-f290-4a60-8927-9bdde3aa2319" name="Changes" comment="AddAdoptionRecordView and AddAdoptionRecordController implemented.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/EditAdopterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/EditAdoptionRecordController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/EditAnimalController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/EditEmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/EditHealthRecordController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/EditAdoptionRecordView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/AddAdoptionRecordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/AddAdoptionRecordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/AddHealthRecordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/AddHealthRecordController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/LoginViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/controller/LoginViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Adoption_Record.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Adoption_Record.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Adoption_RecordDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Adoption_RecordDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Health_RecordDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Health_RecordDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/AddHealthRecordView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/AddHealthRecordView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacob/uidatabase/model/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/EditAdopterView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/EditAdopterView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/EditAnimalView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/EditAnimalView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/EditEmployeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/EditEmployeeView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/EditHealthRecordView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/EditHealthRecordView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/EmployeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/EmployeeView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/LoginView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/LoginView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669282141851</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="AddAdoptionRecordView and AddAdoptionRecordController implemented.">
+      <created>1669285582229</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669285582229</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -195,7 +204,8 @@
     <MESSAGE value="Implemented Logic into Adoption_RecordDAO and Health_RecordDAO" />
     <MESSAGE value="Created Controllers for Add Views, Fixed bug in Adopter DAO and Adoption Record DAO. Added logic to AddAdopterView." />
     <MESSAGE value="Added animal row insertion, AddAnimalView and AddAnimalController implemented." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added animal row insertion, AddAnimalView and AddAnimalController implemented." />
+    <MESSAGE value="AddAdoptionRecordView and AddAdoptionRecordController implemented." />
+    <option name="LAST_COMMIT_MESSAGE" value="AddAdoptionRecordView and AddAdoptionRecordController implemented." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

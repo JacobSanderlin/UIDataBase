@@ -7,16 +7,22 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.EventObject;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -30,6 +36,8 @@ public class EmployeeController {
     private SelectionModel<Employee> employeeSelectionModel;
     private SelectionModel<Adopter> adopterSelectionModel;
     private SelectionModel<Animal> animalSelectionModel;
+    private SelectionModel<Health_Record> healthRecordSelectionModel;
+    private SelectionModel<Adoption_Record> adoptionRecordSelectionModel;
 
     /**
      *  Employee View Fields
@@ -210,12 +218,16 @@ public class EmployeeController {
     private TableColumn<Adoption_Record, String> adopterRecordAnimalNameColumn;
 
 
+    public static Employee selectedEmployee;
+    public static Adopter selectedAdopter;
+    public static Animal selectedAnimal;
+    public static Health_Record selectedHealthRecord;
+    public static Adoption_Record selectedAdoptionRecord;
 
     private static Stage addStage;
 
     public static void closeAddStage() {
         addStage.close();
-
     }
 
 
@@ -303,6 +315,12 @@ public class EmployeeController {
         animalSelectionModel = animalTable.getSelectionModel();
         animalTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
+        healthRecordSelectionModel = healthRecordTable.getSelectionModel();
+        healthRecordTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
+        adoptionRecordSelectionModel = adoptionRecordTable.getSelectionModel();
+        adoptionRecordTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
         // Employee Table Column Initialization
         employee_IDColumn.setCellValueFactory(cellData -> cellData.getValue().employee_idProperty().asObject());
         fNameColumn.setCellValueFactory(cellData -> cellData.getValue().first_nameProperty());
@@ -347,6 +365,171 @@ public class EmployeeController {
         adopterRecordAdopterApprovalColumn.setCellValueFactory(cellData -> cellData.getValue().adopterApprovalProperty());
         adopterRecordAnimalNameColumn.setCellValueFactory(cellData -> cellData.getValue().animalNameProperty());
 
+        employeeTable.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if (mouseEvent.isPrimaryButtonDown() && mouseEvent.getClickCount() == 2) {
+                    addStage = new Stage();
+                    try {
+                        TitledPane addView = FXMLLoader.load(MainApp.class.getResource("/view/EditEmployeeView.fxml"));
+                        Scene scene = new Scene(addView);
+                        selectedEmployee =  employeeSelectionModel.getSelectedItem();
+                        addStage.setOnShown((event) -> {
+                            try {
+                                EditEmployeeController.show();
+                            } catch (SQLException e) {
+                                throw new RuntimeException(e);
+                            } catch (ClassNotFoundException e) {
+                                throw new RuntimeException(e);
+                            }
+                        });
+
+                        addStage.setScene(scene);
+                        addStage.show();
+
+
+
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                }
+            }
+        });
+
+        adopterTable.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if (mouseEvent.isPrimaryButtonDown() && mouseEvent.getClickCount() == 2) {
+                    addStage = new Stage();
+                    try {
+                        TitledPane addView = FXMLLoader.load(MainApp.class.getResource("/view/EditAdopterView.fxml"));
+                        Scene scene = new Scene(addView);
+                        selectedAdopter =  adopterSelectionModel.getSelectedItem();
+                        addStage.setOnShown((event) -> {
+                            try {
+                                EditAdopterController.show();
+                            } catch (SQLException e) {
+                                throw new RuntimeException(e);
+                            } catch (ClassNotFoundException e) {
+                                throw new RuntimeException(e);
+                            }
+                        });
+
+                        addStage.setScene(scene);
+                        addStage.show();
+
+
+
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                }
+            }
+        });
+        animalTable.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if (mouseEvent.isPrimaryButtonDown() && mouseEvent.getClickCount() == 2) {
+                    addStage = new Stage();
+                    try {
+                        TitledPane addView = FXMLLoader.load(MainApp.class.getResource("/view/EditAnimalView.fxml"));
+                        Scene scene = new Scene(addView);
+                        selectedAnimal =  animalSelectionModel.getSelectedItem();
+                        addStage.setOnShown((event) -> {
+                            try {
+                                EditAnimalController.show();
+                            } catch (SQLException e) {
+                                throw new RuntimeException(e);
+                            } catch (ClassNotFoundException e) {
+                                throw new RuntimeException(e);
+                            }
+                        });
+
+                        addStage.setScene(scene);
+                        addStage.show();
+
+
+
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                }
+            }
+        });
+
+        healthRecordTable.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if (mouseEvent.isPrimaryButtonDown() && mouseEvent.getClickCount() == 2) {
+                    addStage = new Stage();
+                    try {
+                        TitledPane addView = FXMLLoader.load(MainApp.class.getResource("/view/EditHealthRecordView.fxml"));
+                        Scene scene = new Scene(addView);
+                        selectedHealthRecord =  healthRecordSelectionModel.getSelectedItem();
+                        addStage.setOnShown((event) -> {
+                            try {
+                                EditHealthRecordController.show();
+                            } catch (SQLException e) {
+                                throw new RuntimeException(e);
+                            } catch (ClassNotFoundException e) {
+                                throw new RuntimeException(e);
+                            }
+                        });
+
+                        addStage.setScene(scene);
+                        addStage.show();
+
+
+
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                }
+            }
+        });
+
+        adoptionRecordTable.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if (mouseEvent.isPrimaryButtonDown() && mouseEvent.getClickCount() == 2) {
+                    addStage = new Stage();
+                    try {
+                        TitledPane addView = FXMLLoader.load(MainApp.class.getResource("/view/EditAdoptionRecordView.fxml"));
+                        Scene scene = new Scene(addView);
+                        selectedAdoptionRecord =  adoptionRecordSelectionModel.getSelectedItem();
+                        addStage.setOnShown((event) -> {
+                            try {
+                                EditAdoptionRecordController.show();
+                            } catch (SQLException e) {
+                                throw new RuntimeException(e);
+                            } catch (ClassNotFoundException e) {
+                                throw new RuntimeException(e);
+                            }
+                        });
+
+                        addStage.setScene(scene);
+                        addStage.show();
+
+
+
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                }
+            }
+        });
+
+
+        populateInit();
+    }
+
+    @FXML
+    private void refresh(MouseEvent event) throws SQLException, ClassNotFoundException {
         populateInit();
     }
 
@@ -372,6 +555,7 @@ public class EmployeeController {
             alert.show();
         }
     }
+
 
 
     @FXML
@@ -623,6 +807,7 @@ public class EmployeeController {
             Scene scene = new Scene(addView);
             addStage.setScene(scene);
             addStage.show();
+            selectedEmployee.getEmployee_id();
         } catch (IOException e) {
             e.printStackTrace();
         }
