@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
 <TitledPane animated="false" collapsible="false" onMouseEntered="#refresh" text="Edit Adopter" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jacob.uidatabase.controller.EditAdopterController">
    <content>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
@@ -56,7 +55,7 @@
                   <Insets right="5.0" />
                </GridPane.margin>
             </Label>
-            <Button mnemonicParsing="false" onAction="#editAdopter" prefWidth="100.0" text="Add" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#editAdopter" prefWidth="100.0" text="Apply" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
             <Button cancelButton="true" layoutX="20.0" layoutY="340.0" mnemonicParsing="false" onAction="#cancel" prefWidth="100.0" text="Cancel" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
             <TextField fx:id="adopterID" GridPane.columnIndex="1">
                <GridPane.margin>
