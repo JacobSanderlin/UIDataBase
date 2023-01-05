@@ -7,6 +7,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author : Jacob Sanderlin
@@ -31,13 +33,20 @@ public class AddAdopterController {
     @FXML
     private void insertAdopter(ActionEvent event) throws SQLException, ClassNotFoundException {
         try {
-            AdopterDAO.insertAdopter(Integer.parseInt(adopterID.getText()), fName.getText(),lName.getText()
-                    ,phoneNumber.getText(),eligibility.getText(),address.getText());
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Adopter Added");
-            alert.setHeaderText("Adopter was inserted into the database successfully!");
-            alert.showAndWait();
-            EmployeeController.closeAddStage();
+            if (!phoneNumberRegex(phoneNumber.getText())) {
+                Alert error = new Alert(Alert.AlertType.ERROR);
+                error.setTitle("Error!");
+                error.setHeaderText("Please enter a valid phone number!");
+                error.showAndWait();
+            } else {
+                AdopterDAO.insertAdopter(Integer.parseInt(adopterID.getText()), fName.getText(), lName.getText()
+                        , phoneNumber.getText(), eligibility.getText(), address.getText());
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Adopter Added");
+                alert.setHeaderText("Adopter was inserted into the database successfully!");
+                alert.showAndWait();
+                EmployeeController.closeAddStage();
+            }
         } catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error!");
@@ -45,6 +54,12 @@ public class AddAdopterController {
             alert.showAndWait();
             throw e;
         }
+    }
+
+    private boolean phoneNumberRegex(String phoneNumber) {
+        String patterns = "^((\\(\\d{1,3}[ .]?\\))|\\d{1,3})\\d{3}[- .]?\\d{4}$";
+        System.out.println(Pattern.compile(patterns).matcher(phoneNumber).find());
+        return Pattern.compile(patterns).matcher(phoneNumber).find();
     }
 
     @FXML

@@ -5,10 +5,12 @@ import com.jacob.uidatabase.model.AdopterDAO;
 import com.jacob.uidatabase.util.DBUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import java.sql.SQLException;
+import java.util.regex.Pattern;
 
 /**
  * @author : Jacob Sanderlin
@@ -32,18 +34,31 @@ public class EditAdopterController {
     private static Adopter adopter;
     @FXML
     private void editAdopter() throws SQLException, ClassNotFoundException {
-        String updateStmt = "UPDATE animalshelter.adopter " +
-                "\nSET adopter_FName = '" + fName.getText() + "', adopter_LName = '" + lName.getText() +
-                "', adopter_ID = " + adopterID.getText() + ", adopter_PhoneNumber = '" + phone.getText() +
-                "', adopter_Approval = '" + eligibility.getText() + "', adopter_Address = '" + streetAddress.getText() + "' \nWHERE " +
-                "(adopter_ID = '" + adopter.getAdopter_id() + "');";
-        try {
-            DBUtil.dbExecuteUpdate(updateStmt);
-            EmployeeController.closeAddStage();
-        } catch (SQLException e) {
-            System.out.println("Error during EDIT Operation: " + e);
-            throw e;
+        if (!phoneNumberRegex(phone.getText())) {
+            Alert error = new Alert(Alert.AlertType.ERROR);
+            error.setTitle("Error!");
+            error.setHeaderText("Please enter a valid phone number!");
+            error.showAndWait();
+        } else {
+            String updateStmt = "UPDATE animalshelter.adopter " +
+                    "\nSET adopter_FName = '" + fName.getText() + "', adopter_LName = '" + lName.getText() +
+                    "', adopter_ID = " + adopterID.getText() + ", adopter_PhoneNumber = '" + phone.getText() +
+                    "', adopter_Approval = '" + eligibility.getText() + "', adopter_Address = '" + streetAddress.getText() + "' \nWHERE " +
+                    "(adopter_ID = '" + adopter.getAdopter_id() + "');";
+            try {
+                DBUtil.dbExecuteUpdate(updateStmt);
+                EmployeeController.closeAddStage();
+            } catch (SQLException e) {
+                System.out.println("Error during EDIT Operation: " + e);
+                throw e;
+            }
         }
+    }
+
+    private boolean phoneNumberRegex(String phoneNumber) {
+        String patterns = "^((\\(\\d{1,3}[ .]?\\))|\\d{1,3})\\d{3}[- .]?\\d{4}$";
+        System.out.println(Pattern.compile(patterns).matcher(phoneNumber).find());
+        return Pattern.compile(patterns).matcher(phoneNumber).find();
     }
 
     public static void show() throws SQLException, ClassNotFoundException {

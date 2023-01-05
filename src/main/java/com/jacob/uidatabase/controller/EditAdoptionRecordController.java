@@ -6,10 +6,12 @@ import com.jacob.uidatabase.model.AnimalDAO;
 import com.jacob.uidatabase.util.DBUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import java.sql.SQLException;
+import java.util.regex.Pattern;
 
 /**
  * @author : Jacob Sanderlin
@@ -40,25 +42,38 @@ public class EditAdoptionRecordController {
     @FXML
     private void editAdoptionRecord() throws SQLException, ClassNotFoundException {
         String dateString = date.getText().replaceAll("-", "");
-        String updateStmt = "UPDATE animalshelter.adoption_record " +
-                "\nSET Adopter_ID = " + adopterID.getText() + ", Adopter_Phone = '" + phone.getText() +
-                "', Adopter_Name = '" + fName.getText() + "', Animal_Name = '" + aName.getText() +
-                "', Case_ID = " + caseID.getText() + ", Date_Adopted = '" + dateString +
-                "', Adopter_Approval = '" + approval.getText() + "', Animal_ID = " + animalID.getText() +
-                ", Adopter_LName = '" + lName.getText() + "'\nWHERE " +
-                "(Case_ID = '" + record.getCaseNumber() + "');";
-        try {
-            DBUtil.dbExecuteUpdate(updateStmt);
-            EmployeeController.closeAddStage();
-        } catch (SQLException e) {
-            System.out.println("Error during EDIT Operation: " + e);
-            throw e;
+        if (!phoneNumberRegex(phone.getText())) {
+            Alert error = new Alert(Alert.AlertType.ERROR);
+            error.setTitle("Error!");
+            error.setHeaderText("Please enter a valid phone number!");
+            error.showAndWait();
+        } else {
+            String updateStmt = "UPDATE animalshelter.adoption_record " +
+                    "\nSET Adopter_ID = " + adopterID.getText() + ", Adopter_Phone = '" + phone.getText() +
+                    "', Adopter_Name = '" + fName.getText() + "', Animal_Name = '" + aName.getText() +
+                    "', Case_ID = " + caseID.getText() + ", Date_Adopted = '" + dateString +
+                    "', Adopter_Approval = '" + approval.getText() + "', Animal_ID = " + animalID.getText() +
+                    ", Adopter_LName = '" + lName.getText() + "'\nWHERE " +
+                    "(Case_ID = '" + record.getCaseNumber() + "');";
+            try {
+                DBUtil.dbExecuteUpdate(updateStmt);
+                EmployeeController.closeAddStage();
+            } catch (SQLException e) {
+                System.out.println("Error during EDIT Operation: " + e);
+                throw e;
+            }
         }
     }
 
     public static void show() throws SQLException, ClassNotFoundException {
         record = Adoption_RecordDAO.searchAdoptionRecord("Case_ID",
                 String.valueOf(EmployeeController.selectedAdoptionRecord.getCaseNumber())).get(0);
+    }
+
+    private boolean phoneNumberRegex(String phoneNumber) {
+        String patterns = "^((\\(\\d{1,3}[ .]?\\))|\\d{1,3})\\d{3}[- .]?\\d{4}$";
+        System.out.println(Pattern.compile(patterns).matcher(phoneNumber).find());
+        return Pattern.compile(patterns).matcher(phoneNumber).find();
     }
 
     @FXML
